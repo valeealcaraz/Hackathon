@@ -1,0 +1,23 @@
+<html>
+   <body>
+      <form action = "{{ url_for('registro') }}" method = "POST">
+         <h3>Student Information</h3>
+         Raza<br>
+         <input type = "text" name = "inputName" /></br>
+         
+        Peso aproximado<br>
+         <textarea name = "peso" ></textarea><br>
+         
+         Dosis<br>
+         <input type = "text" name = "dosis" /><br>
+         
+         Fecha ultima vacunacion<br>
+         <input type = "date" name = "ultimaFecha" /><br>
+
+          Tipos de vacunas aplicadas<br>
+         <input type = "text" name = "vacunas" /><br>
+
+         <input type = "submit" value = "submit" /><br>
+      </form>
+   </body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Ñande Rymba</title>
+
+   
+      <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+   
+  </head>
+
+  <body>
+
+    <div class="container-fluid">
+      <div class="header">
+        <nav>
+          <ul class="nav nav-pills pull-right">
+            <li role="presentation" ><a href="showHome">Inicio</a></li>
+            
+            
+          </ul>
+        </nav>
+        <h3 class="text-muted">Datos del animal</h3>
+      </div>
+
+      <div class="jumbotron">
+        <h1>Registro de animales</h1>
+        
+         <form action = "{{ url_for('registro') }}" onsubmit="return validar()" method = "POST">
+       <!--- <form class="form-signin">-->
+          <label for="Id" class="sr-only">Id</label>
+          <input type="number" name="Id" id="Id" class="form-control" placeholder="Id" required autofocus onchange="cambio()">
+       
+        <label for="inputName" class="sr-only">Raza</label>
+        <input type="name" name="inputName" id="inputName" class="form-control" placeholder="Raza" required autofocus>
+        
+        <label for="peso" class="sr-only">Peso aprox.</label>
+        <input type="text" name="peso" id="peso" class="form-control" placeholder="Peso aprox." required autofocus>
+        
+        <label for="dosis" class="sr-only">Dosis</label>
+        <input type="text" name="dosis" id="dosis" class="form-control" placeholder="Dosis" required>
+        
+        <label for="ultimaFecha" class="sr-only">Ultima fecha vacunacion</label>
+        <input type="date" name="ultimaFecha" id="ultimaFecha" class="form-control" placeholder="Dosis" required>
+
+        <label for="vacunas" class="sr-only">Tipos de vacunas aplicadas</label>
+        <input type="text" name="vacunas" id="vacunas" class="form-control" placeholder="Tipos de vacunas aplicadas" required>
+        <input type = "submit" value = "Subir Datos" onclick="alerta()" class="btn btn-lg btn-primary btn-block"/><br>
+        <!---<button id="btnSignUp" class="btn btn-lg btn-primary btn-block" type="button">Registrarse</button> -->
+      </form>
+      <h1 id="resultado"></h1>
+      <a href="/list"> Ir a la lista</a>
+      </div>
+
+
+      <footer class="footer">
+        <p>&copy;Williams_Bobadilla 2019</p>
+      </footer>
+
+    </div>
+   
+        
+    <script>
+      
+      // 
+      var hola='{{dato}}';                         //recibimos los datos desde flask 
+      var json=JSON.parse('{{dato|tojson|safe}}') ;  //convertimos los recibido en un objeto json
+      var index_json=0;
+      function cambio(){ 
+
+        var entrada=document.getElementById('Id').value;  //obtenemos el valor de id, para saber la raza relacionada con ese id 
+        entrada=parseInt(entrada);                        // convertimos a int la entrada que estaba en string
+
+        var index_json=json.Id.indexOf(entrada);         //con esto hallamos sla posicion de la id buscada
+   
+        if(json.razas[index_json]!=json.razas[-1])       // si es que no esta definido no poner nada, logramos comparar con el undefined gracias a el index -1 que no esta definido
+          {
+          document.getElementById("inputName").value= json.razas[index_json];  // reemplazar el valor de la cajita por la raza si se encuentra
+          //document.getElementById("inputName").isContentEditable="false";       //bloqueamos el contenido para que no sea editado
+         // document.formulario.inputName.readOnly=true;
+          }else{
+          document.getElementById("inputName").value= " "; //si no se encuentra poner en blanco
+         // document.getElementById("inputName").isContentEditable=true;       // hacemos que el contenido sea editable
+          //document.formulario.inputName.readOnly=false;
+        }
+      }
+
+     
+    
+   </script>
+  
+  <script>
+          var retardo;
+         function validar()
+          {
+          var opcion = confirm("Desea guardar los datos?");
+          if(opcion==true)
+          {
+            document.getElementById("resultado").innerHTML="Guardado correctamente"; //hacemos aparecer el mensaje
+            retardo= setInterval(borrar,8000);  //borramos 
+          }
+          return opcion;
+      }
+      function borrar(){
+        document.getElementById("resultado").innerHTML=" "; //borramos el mensaje
+        clearInterval(retardo);
+
+      }
+   
+  </script>
+
+      
+
+
+
+
+
+
+  </body>
+</html>

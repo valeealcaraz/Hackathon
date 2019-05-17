@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<head>
+ <title>Ñande Rymba</title>
+   <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+</head>
+   <body>
+         <div class="container-fluid">
+               <div class="header">
+                 <nav>
+                   <ul class="nav nav-pills pull-right">
+                     <li role="presentation" class="active"><a href="/">Inicio</a></li>
+                     <li role="presentation"><a href="/formulario">Formulario</a></li>
+                
+                   </ul>
+                 </nav>
+                 <h3 class="text-muted">Consulta de animales</h3>
+               </div>
+               
+               <div class="jumbotron" >
+                     <h1>Ganaderia</h1>
+                     <p class="lead"></p>
+               </div>
+      <table border = 2>
+         <thead>
+            <td align="center"><strong>Identificativo</strong></td>
+            <td align="center"> <strong>Raza</strong></td>
+            <td align="center"><strong>Peso</strong></td>
+            <td align="center"><strong>Dosis</strong></td>
+            <td align="center"><strong>Fecha</strong></td>
+            <td align="center"><strong>Vacunas aplicadas </strong></td>
+         </thead>
+         
+         {% for row in rows %}
+            <tr>
+               <td align="center">{{row["Id"]}}</td>
+               <td align="center">{{row["Nombre"]}}</td>
+               <td align="center">{{row["Peso"]}}</td>
+               <td align="center"> {{ row["Dosis"]}}</td>
+               <td align="center">{{row['Ultimafecha']}}</td>	
+               <td align="center"> {{ row["Vacunas"]}}</td>
+            </tr>
+         {% endfor %}
+      </table>
+      <button class="btn btn-lg btn-success">
+       
+         <a href = "/formulario">Regresar para registar otro animal</a>
+      
+      </button>
+       <br>
+       <br>
+      <button class="btn btn-lg btn-success">
+            <a href = "/">Regresar a la página principal</a>
+      </button>
+      
+   </body>
+</html>

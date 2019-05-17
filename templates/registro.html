@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Ñande Rymba</title>
+    <title>Ventas Hobbies</title>
 
    
       <!-- Latest compiled and minified CSS -->
@@ -26,31 +26,31 @@
             
           </ul>
         </nav>
-        <h3 class="text-muted">Datos del animal</h3>
+        <h3 class="text-muted">Datos del Producto/Servicio</h3>
       </div>
 
       <div class="jumbotron">
-        <h1>Registro de animales</h1>
+        <h1>Registro de Productos/Servicios</h1>
         
          <form action = "{{ url_for('registro') }}" onsubmit="return validar()" method = "POST">
        <!--- <form class="form-signin">-->
-          <label for="Id" class="sr-only">Id</label>
-          <input type="number" name="Id" id="Id" class="form-control" placeholder="Id" required autofocus onchange="cambio()">
+          <label for="Servicio/Producto" class="sr-only">Servicio/Producto</label>
+          <input type="name" name="Servicio" id="Servicio/Producto" class="form-control" placeholder="Servicio/Producto" required autofocus onchange="cambio()">
        
-        <label for="inputName" class="sr-only">Raza</label>
-        <input type="name" name="inputName" id="inputName" class="form-control" placeholder="Raza" required autofocus>
+        <label for="Descripcion del producto" class="sr-only">Descripcion del producto</label>
+        <input type="text" name="Descripcion del producto" id="inputName" class="form-control" placeholder="Descripcion del producto" required autofocus>
         
-        <label for="peso" class="sr-only">Peso aprox.</label>
-        <input type="text" name="peso" id="peso" class="form-control" placeholder="Peso aprox." required autofocus>
+        <label for="Horas por semana" class="sr-only">Horas por semana</label>
+        <input type="number" name="Horas por semana" id="Horas por semana" class="form-control" placeholder="Horas por semana" required autofocus>
         
-        <label for="dosis" class="sr-only">Dosis</label>
-        <input type="text" name="dosis" id="dosis" class="form-control" placeholder="Dosis" required>
+        <label for="Precio por hora" class="sr-only">Precio por hora</label>
+        <input type="text" name="Precio por hora" id="Precio por hora" class="form-control" placeholder="Precio por hora" required>
         
-        <label for="ultimaFecha" class="sr-only">Ultima fecha vacunacion</label>
-        <input type="date" name="ultimaFecha" id="ultimaFecha" class="form-control" placeholder="Dosis" required>
+        <label for="Contacto" class="sr-only">Numero de telefono</label>
+        <input type="number" name="Contacto" id="Contacto" class="form-control" placeholder="Numero de telefono" required>
 
-        <label for="vacunas" class="sr-only">Tipos de vacunas aplicadas</label>
-        <input type="text" name="vacunas" id="vacunas" class="form-control" placeholder="Tipos de vacunas aplicadas" required>
+        <label for="Correo" class="sr-only">Correo electronico</label>
+        <input type="text" name="Correo" id="Correo" class="form-control" placeholder="Correo electronico" required>
         <input type = "submit" value = "Subir Datos" onclick="alerta()" class="btn btn-lg btn-primary btn-block"/><br>
         <!---<button id="btnSignUp" class="btn btn-lg btn-primary btn-block" type="button">Registrarse</button> -->
       </form>
@@ -60,7 +60,7 @@
 
 
       <footer class="footer">
-        <p>&copy;Williams_Bobadilla 2019</p>
+        <p>&copy;Alejandro Mendez 2019</p>
       </footer>
 
     </div>

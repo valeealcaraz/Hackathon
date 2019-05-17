@@ -4,7 +4,7 @@
 
 
 """
-integrantes: Vale, Fede, Ale, Adolfo y Vero
+integrantes: Vale, fede, ale ,adolfo, vero
 fecha: 10-2-2019
 fecha de ultima edicion: 14 de mayo del 2019
 descripcion: Es un sistema de inscripcion para animales, regalo para mi papá, tiene
@@ -44,7 +44,7 @@ def formulario():
     js=lista()    #llamamos a la funcion para retornar del lado del cliente datos par el formulario
     return render_template('registro.html',dato=js)
 
-@app.route('/registro', methods=['POST','GET'])      # aca es para registrar el servicio/producto
+@app.route('/registro', methods=['POST','GET'])      # aca es para registrar al animal
 def registro():
     if request.method=='POST':   
         try:

@@ -59,14 +59,14 @@ def registro():
                 cur = con.cursor()
                 cur.execute('''CREATE TABLE IF NOT EXISTS servicios (
                                         Servicio name ,
-                                        Descripcion del producto text,                                        
-                                        Horas por semana integer NOT NULL,
-                                        Precio por hora integer NOT NULL,
+                                        Descripcion_del_producto text,                                        
+                                        Horas_por_semana integer NOT NULL,
+                                        Precio_por_hora integer NOT NULL,
                                         Contacto number,
                                         Correo text
                                     );'''
                        )
-                cur.execute('''INSERT INTO animales (Id,Nombre,Peso,Dosis,Ultimafecha,Vacunas) VALUES (?,?,?,?,?,?);''', datos )
+                cur.execute('''INSERT INTO animales (Servicio,Descripcion_del_producto,Horas_por_semana,Precio_por_hora,Contacto,Correo) VALUES (?,?,?,?,?,?);''', datos )
             
                 con.commit()   
              
@@ -76,7 +76,7 @@ def registro():
         finally:
             con.close()# cerramos la conexion de la base de datos 
             js=lista()   #retornamos datos de la db para el form del lado del cliente
-            return render_template('registro.html',dato=js)
+            return render_template('list.html',dato=js)
             
 
 
@@ -90,7 +90,7 @@ def list():
    con = sql.connect(nombre_db)   
    con.row_factory = sql.Row
    cur = con.cursor()
-   cur.execute("select * from animales")  #seleccionamos todos los datos de la tabla animales
+   cur.execute("select * from servicios")  #seleccionamos todos los datos de la tabla animales
   
    
    rows = cur.fetchall()
@@ -142,18 +142,18 @@ def lista():
    except:            #si tiene problemas puede ser porque no existe la base de datos
        with sql.connect(nombre_db) as con:        
            cur = con.cursor()
-           cur.execute('''CREATE TABLE IF NOT EXISTS animales (
-                                        Id integer ,
-                                        Nombre text,                                        
-                                        Peso integer NOT NULL,
-                                        Dosis text NOT NULL,
-                                        Ultimafecha text,
-                                        Vacunas text
+           cur.execute('''CREATE TABLE IF NOT EXISTS servicios (
+                                        Servicio name ,
+                                        Descripcion del producto text,                                        
+                                        Horas por semana integer NOT NULL,
+                                        Precio por hora integer NOT NULL,
+                                        Contacto number,
+                                        Correo text
                                     );'''
                        )
            js={
-             'Id': " ",  
-                 'razas': " "
+             'Servicio': " ",  
+                 'Descripcion del producto': " "
 
             }
        return js

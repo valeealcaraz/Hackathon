@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
- <title>Ñande Rymba</title>
+ <title>Venta hobbies</title>
    <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -26,33 +26,33 @@
                </div>
                
                <div class="jumbotron" >
-                     <h1>Serivicos</h1>
+                     <h1>Servicios</h1>
                      <p class="lead"></p>
                </div>
       <table border = 2>
          <thead>
-            <td align="center"><strong>Servicio Producto</strong></td>
-            <td align="center"> <strong>Descripcion_del producto</strong></td>
+            <td align="center"><strong>Servicio</strong></td>
+            <td align="center"> <strong>Descripcion del producto</strong></td>
             <td align="center"><strong>Horas por semana</strong></td>
             <td align="center"><strong>Precio por hora</strong></td>
-            <td align="center"><strong>Fecha</strong></td>
-            <td align="center"><strong>Vacunas aplicadas </strong></td>
+            <td align="center"><strong>Numero de telefono</strong></td>
+            <td align="center"><strong>Correo </strong></td>
          </thead>
          
          {% for row in rows %}
             <tr>
-               <td align="center">{{row["Id"]}}</td>
-               <td align="center">{{row["Nombre"]}}</td>
-               <td align="center">{{row["Peso"]}}</td>
-               <td align="center"> {{ row["Dosis"]}}</td>
-               <td align="center">{{row['Ultimafecha']}}</td>	
-               <td align="center"> {{ row["Vacunas"]}}</td>
+               <td align="center">{{row["Servicio"]}}</td>
+               <td align="center">{{row["Descripcion_del_producto"]}}</td>
+               <td align="center">{{row["Horas_por_semana"]}}</td>
+               <td align="center"> {{ row["Precio_por_hora"]}}</td>
+               <td align="center">{{row['Contacto']}}</td>	
+               <td align="center"> {{ row["Correo"]}}</td>
             </tr>
          {% endfor %}
       </table>
       <button class="btn btn-lg btn-success">
        
-         <a href = "/formulario">Regresar para registar otro animal</a>
+         <a href = "/formulario">Regresar para registar otro servicio</a>
       
       </button>
        <br>

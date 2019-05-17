@@ -18,7 +18,7 @@ pero lo basico ya tiene.
 from flask import Flask, render_template, json, request
 import sqlite3 as sql 
 
-app=Flask(__name__)
+app=Flask(__name__, static_url_path='')
 
 nombre_db="base_datos3.db"   #nombre de la base de datos
 

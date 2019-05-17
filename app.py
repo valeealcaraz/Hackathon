@@ -4,7 +4,7 @@
 
 
 """
-integrantes: Vale, Fede, Ale, Adolfo y Vero
+integrantes: Vale, fede, ale ,adolfo, vero
 fecha: 10-2-2019
 fecha de ultima edicion: 14 de mayo del 2019
 descripcion: Es un sistema de inscripcion para animales, regalo para mi papá, tiene
@@ -18,7 +18,7 @@ pero lo basico ya tiene.
 from flask import Flask, render_template, json, request
 import sqlite3 as sql 
 
-app=Flask(__name__, static_url_path='')
+app=Flask(__name__)
 
 nombre_db="base_datos3.db"   #nombre de la base de datos
 
@@ -44,26 +44,26 @@ def formulario():
     js=lista()    #llamamos a la funcion para retornar del lado del cliente datos par el formulario
     return render_template('registro.html',dato=js)
 
-@app.route('/registro', methods=['POST','GET'])      # aca es para registrar el servicio/producto
+@app.route('/registro', methods=['POST','GET'])      # aca es para registrar al animal
 def registro():
     if request.method=='POST':   
         try:
-            Servicio_Producto=request.form['Servicio']                         #identificativo del servicio
-            Descripcion_del_producto=request.form['Descripcion del producto']             #descripcion del servicio 
-            Horas_por_semana=request.form['Horas por semana']  #cuantas horas por semana
-            Precio_por_hora=request.form['Precio por hora'] #precio por hora o servicio por servicio
-            Numero_de_telefono=request.form['Contacto'] #contacto
-            Correo=request.form['Correo']  
-            datos=[Servicio_Producto,Descripcion_del_producto,Horas_por_semana,Precio_por_hora,Numero_de_telefono,Correo]  # esto es para meter en la db luego
+            Id=request.form['Id']                         #identificativo del animal
+            nombre=request.form['inputName']             #esta es la raza en realidad 
+            peso=request.form['peso']
+            dosis=request.form['dosis']
+            ultimafecha=request.form['ultimaFecha']
+            vacunas=request.form['vacunas']  
+            datos=[Id,nombre,peso,dosis,ultimafecha,vacunas]  # esto es para meter en la db luego
             with sql.connect(nombre_db) as con:        
                 cur = con.cursor()
-                cur.execute('''CREATE TABLE IF NOT EXISTS servicios (
-                                        Servicio name ,
-                                        Descripcion del producto text,                                        
-                                        Horas por semana integer NOT NULL,
-                                        Precio por hora integer NOT NULL,
-                                        Contacto number,
-                                        Correo text
+                cur.execute('''CREATE TABLE IF NOT EXISTS animales (
+                                        Id integer ,
+                                        Nombre text,                                        
+                                        Peso integer NOT NULL,
+                                        Dosis text NOT NULL,
+                                        Ultimafecha text,
+                                        Vacunas text
                                     );'''
                        )
                 cur.execute('''INSERT INTO animales (Id,Nombre,Peso,Dosis,Ultimafecha,Vacunas) VALUES (?,?,?,?,?,?);''', datos )

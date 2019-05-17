@@ -48,52 +48,48 @@ def formulario():
 def registro():
     if request.method=='POST':   
         try:
-            Id=request.form['Id']                         #identificativo del animal
-            nombre=request.form['inputName']             #esta es la raza en realidad 
-            peso=request.form['peso']
-            dosis=request.form['dosis']
-            ultimafecha=request.form['ultimaFecha']
-            vacunas=request.form['vacunas']  
-            datos=[Id,nombre,peso,dosis,ultimafecha,vacunas]  # esto es para meter en la db luego
-            with sql.connect(nombre_db) as con:        
+            Servicio_Producto=request.form['Servicio']                         #identificativo del servicio
+            Descripcion_del_producto=request.form['Descripcion del producto']             #descripcion del servicio 
+            Horas_por_semana=request.form['Horas por semana']  #cuantas horas por semana
+            Precio_por_hora=request.form['Precio por hora'] #precio por hora o servicio por servicio
+            Numero_de_telefono=request.form['Contacto'] #contacto
+            Correo=request.form['Correo']  
+            datos=[Servicio_Producto,Descripcion_del_producto,Horas_por_semana,Precio_por_hora,Numero_de_telefono,Correo]  # esto es para meter en la db luego
+            print(datos)
+            with sql.connect(nombre_db) as con:
+                    
                 cur = con.cursor()
-<<<<<<< HEAD
-                cur.execute('''CREATE TABLE IF NOT EXISTS animales (
-                                        Id integer ,
-                                        Nombre text,                                        
-                                        Peso integer NOT NULL,
-                                        Dosis text NOT NULL,
-                                        Ultimafecha text,
-                                        Vacunas text
-=======
                 cur.execute('''CREATE TABLE IF NOT EXISTS servicios (
-                                        Servicio name ,
+                                        Servicio text,
                                         Descripcion_del_producto text,                                        
                                         Horas_por_semana integer NOT NULL,
                                         Precio_por_hora integer NOT NULL,
                                         Contacto number,
                                         Correo text
->>>>>>> 36b3357086faa8250e5974ea21cbfe4550f3d502
                                     );'''
                        )
-                cur.execute('''INSERT INTO animales (Servicio,Descripcion_del_producto,Horas_por_semana,Precio_por_hora,Contacto,Correo) VALUES (?,?,?,?,?,?);''', datos )
+                cur.execute('''INSERT INTO servicios (Servicio,Descripcion_del_producto,Horas_por_semana,Precio_por_hora,Contacto,Correo) VALUES (?,?,?,?,?,?);''', datos )
             
                 con.commit()   
              
-        except:
+        except sql.Error as e:
+            print(e)
             con.rollback()
 
         finally:
             con.close()# cerramos la conexion de la base de datos 
             js=lista()   #retornamos datos de la db para el form del lado del cliente
-            return render_template('list.html',dato=js)
+            return render_template('registro.html',dato=js)
             
 
 
 @app.route('/signUp',methods=['POST','GET'])
+def register():
+    return render_template('register.html')
+
+@app.route('/register',methods=['POST','GET'])
 def signUp():
     return render_template('signup.html')
-    
 
 @app.route('/list')
 def list():
@@ -104,13 +100,14 @@ def list():
   
    
    rows = cur.fetchall()
+   print(rows)
    return render_template("list.html",rows = rows)
     
 @app.route('/consulta')
 def consulta():
    return render_template("consulta.html")
 
-@app.route('/consulta_id',methods=['POST','GET']) #esto es para la consulta por un animal (individual)
+@app.route('/consulta_servicio',methods=['POST','GET']) #esto es para la consulta por un animal (individual)
 def consulta_id():
     columna=[]                                   #creo una lista vacía
     if request.method=='POST':                   
@@ -119,14 +116,14 @@ def consulta_id():
         con.row_factory = sql.Row               #confirmamos para que los datos que se consulte estén en fila
     
         cur = con.cursor()
-        cur.execute("select * from animales")   #hacemos la consulta y seleccionamos TODOS los datos de la base de dato
+        cur.execute("select * from servicio")   #hacemos la consulta y seleccionamos TODOS los datos de la base de dato
     
         rows = cur.fetchall()                
         for i in rows:                   #recorremos la lista dentro de otra lista que está en rows
-            if variable==str(i["Id"]):   #si coincide con la consulta, agregamos lo que se consulto 
+            if variable==str(i["servicio"]):   #si coincide con la consulta, agregamos lo que se consulto 
                 columna.append(i)        #con append agregamos lo que se consultó en la base de datos, solo cuando coincide lo que se le metio en la consulta desde el html 
         
-        return render_template("lista_id.html",Identificativo=variable,columna=columna)
+        return render_template("lista_servicio.html",Identificativo=variable,columna=columna)
 
 
 def lista():
@@ -134,7 +131,7 @@ def lista():
        con = sql.connect(nombre_db)
        con.row_factory = sql.Row  
        cur = con.cursor()
-       cur.execute("select * from animales")
+       cur.execute("select * from servicio")
        dato = cur.fetchall()     #cargamos toda la info de la db en la variable dato
        razas=[]                   #lista para almacenar datos de razas 
        id=[]
@@ -144,8 +141,8 @@ def lista():
           razas.append(a[1])   #usamos la posicion 1 ya que ahi se encuentran las razas 
                             # en la siguiente linea formateamos en json para luego formatear del lado del cliente en js 
        js={
-            'Id': id, 
-        'razas': razas
+            'Servicios': servicio, 
+        'Descripcion_del_producto': Descripcion_del_producto
         
         }
        return js   
@@ -153,10 +150,10 @@ def lista():
        with sql.connect(nombre_db) as con:        
            cur = con.cursor()
            cur.execute('''CREATE TABLE IF NOT EXISTS servicios (
-                                        Servicio name ,
-                                        Descripcion del producto text,                                        
-                                        Horas por semana integer NOT NULL,
-                                        Precio por hora integer NOT NULL,
+                                        Servicio text,
+                                        Descripcion_del_producto text,                                        
+                                        Horas_por_semana integer NOT NULL,
+                                        Precio_por_hora integer NOT NULL,
                                         Contacto number,
                                         Correo text
                                     );'''

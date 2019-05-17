@@ -128,9 +128,14 @@
                   </h1>
               </a>
               <div class="navbar-slogan">
+<<<<<<< HEAD
                 Responsive HTML Theme
                 <br> By BootstrapMade.com
                 <a href="../list" >ir a list </a>
+=======
+                Aprende a compartir tus Hobbies
+                <br> 
+>>>>>>> 0c497b131276db26f8ad6273404ae08e26298243
               </div>
             </div>
             <!--header rightside-->
@@ -453,6 +458,42 @@
       </div>
     </div>
     <!-- Services -->
+    <html>
+<head>
+ <title>Venta hobbies</title>
+   <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+</head>
+      <table border = 2>
+         <thead>
+            <td align="center"><strong>Servicio</strong></td>
+            <td align="center"> <strong>Descripcion_del_producto</strong></td>
+            <td align="center"><strong>Horas_por_semana</strong></td>
+            <td align="center"><strong>Precio_por_hora</strong></td>
+            <td align="center"><strong>Contacto</strong></td>
+            <td align="center"><strong>Correo </strong></td>
+         </thead>
+         
+         {% for row in rows %}
+            <tr>
+               <td align="center">{{row["Servicio"]}}</td>
+               <td align="center">{{row["Descripcion_del_producto"]}}</td>
+               <td align="center">{{row["Horas_por_semana"]}}</td>
+               <td align="center"> {{ row["Precio_por_hora"]}}</td>
+               <td align="center">{{row['Contacto']}}</td>	
+               <td align="center"> {{ row["Correo"]}}</td>
+            </tr>
+         {% endfor %}
+      </table>
+      <button class="btn btn-lg btn-success">
+
     <div class="services block block-bg-gradient block-border-bottom">
       <div class="container">
         <h2 class="block-title">

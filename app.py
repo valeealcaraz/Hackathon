@@ -4,7 +4,7 @@
 
 
 """
-autor: Williams Bobadilla 
+integrantes: Vale, Fede, Ale, Adolfo y Vero
 fecha: 10-2-2019
 fecha de ultima edicion: 14 de mayo del 2019
 descripcion: Es un sistema de inscripcion para animales, regalo para mi papá, tiene

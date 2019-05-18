@@ -29,12 +29,9 @@ def main():
 
 @app.route('/showHome')
 def showHome():
-    return render_template('index.html') 
+    return render_template('index.html')  
 
-<<<<<<< HEAD
-
-=======
->>>>>>> cf1eeda7ee8433ab22ec93dd285e2eeecdce3cab
+"""
 @app.route('/ingresar',methods=['POST','GET'])
 def ingresar():
     return render_template('ingresar.html')
@@ -231,3 +228,4 @@ def consulta_id():
                 columna.append(i)        #con append agregamos lo que se consultó en la base de datos, solo cuando coincide lo que se le metio en la consulta desde el html 
         
         return render_template("consulta_username.html",Identificativo=variable,columna=columna)
+"""

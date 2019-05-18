@@ -31,7 +31,7 @@ def main():
 def showHome():
     return render_template('index.html')  
 
-"""
+
 @app.route('/ingresar',methods=['POST','GET'])
 def ingresar():
     return render_template('ingresar.html')
@@ -167,8 +167,7 @@ def lista():
             }
        return js
 
-if __name__ == "__main__":
-    app.run(debug=True)
+
 
 @app.route('/register.login', methods=['POST','GET'])      # aca es para registrar al usuario
 def registro_usuario():
@@ -225,4 +224,6 @@ def consulta_id():
                 columna.append(i)        #con append agregamos lo que se consultó en la base de datos, solo cuando coincide lo que se le metio en la consulta desde el html 
         
         return render_template("consulta_username.html",Identificativo=variable,columna=columna)
-"""
+
+if __name__ == "__main__":
+    app.run(debug=True)

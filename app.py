@@ -24,7 +24,6 @@ app=Flask(__name__, static_url_path='')
 #nombre_db="base_datos3.db"   #nombre de la base de datos
 =======
 nombre_db="base_datos3.db"   #nombre de la base de datos
->>>>>>> 25bdfd77cf37a8be137c22dfd80b22523e3f4d56
 
 @app.route('/')
 def main():

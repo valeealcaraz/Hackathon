@@ -169,7 +169,7 @@ def lista():
 if __name__ == "__main__":
     app.run(debug=True)
 
-"""
+
 @app.route('/register', methods=['POST','GET'])      # aca es para registrar al usuario
 def registro_usuario():
     if request.method=='POST':   
@@ -225,4 +225,3 @@ def consulta_id():
                 columna.append(i)        #con append agregamos lo que se consultó en la base de datos, solo cuando coincide lo que se le metio en la consulta desde el html 
         
         return render_template("consulta_username.html",Identificativo=variable,columna=columna)
-"""

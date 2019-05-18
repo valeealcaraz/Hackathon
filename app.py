@@ -31,10 +31,6 @@ def main():
 def showHome():
     return render_template('index.html') 
 
-<<<<<<< HEAD
-
-=======
->>>>>>> cf1eeda7ee8433ab22ec93dd285e2eeecdce3cab
 @app.route('/ingresar',methods=['POST','GET'])
 def ingresar():
     return render_template('ingresar.html')
@@ -174,7 +170,7 @@ if __name__ == "__main__":
     app.run(debug=True)
 
 @app.route('/register.login', methods=['POST','GET'])      # aca es para registrar al usuario
-def registro():
+def registro_usuario():
     if request.method=='POST':   
         try:
             Nombre_usuario=request.form['Username']                         #nombre de usuario
@@ -211,7 +207,7 @@ def registro():
             return render_template('register.login.html',dato=js)
 
 @app.route('/consulta')
-def consulta():
+def consulta_usuario():
    return render_template("consulta.html")
 
 @app.route('/consulta_username',methods=['POST','GET']) #esto es para la consulta por un animal (individual)
@@ -222,7 +218,7 @@ def consulta_id():
         con = sql.connect(nombre_db)            #conectamos a la base de datos
         con.row_factory = sql.Row               #confirmamos para que los datos que se consulte estén en fila
     
-        cur = c on.cursor()
+        cur = con.cursor()
         cur.execute("select * from login")   #hacemos la consulta y seleccionamos TODOS los datos de la base de dato
     
         rows = cur.fetchall()                

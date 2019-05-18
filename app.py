@@ -16,23 +16,24 @@ pero lo basico ya tiene.
 
 
 from flask import Flask, render_template, json, request
-import sqlite3 as sql 
+#import sqlite3 as sql 
 
 app=Flask(__name__, static_url_path='')
 
-nombre_db="base_datos3.db"   #nombre de la base de datos
+#nombre_db="base_datos3.db"   #nombre de la base de datos
 
 
 
 @app.route('/')
 def main():
-    return render_template('Flexor/index.html')
+    return render_template('/index.html')
 
 
 @app.route('/showHome')
 def showHome():
     return render_template('index.html') 
 
+"""
 @app.route('/ingresar',methods=['POST','GET'])
 def ingresar():
     return render_template('ingresar.html')
@@ -206,4 +207,3 @@ def registro():
             con.close()# cerramos la conexion de la base de datos 
             js=lista()   #retornamos datos de la db para el form del lado del cliente
             return render_template('register.login.html',dato=js)
-            

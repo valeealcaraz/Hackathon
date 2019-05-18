@@ -27,7 +27,6 @@ def main():
     return render_template('index.html')
 
 
-"""
 @app.route('/showHome')
 def showHome():
     return render_template('index.html') 
@@ -205,16 +204,8 @@ def registro_usuario():
         finally:
             con.close()# cerramos la conexion de la base de datos 
             js=lista()   #retornamos datos de la db para el form del lado del cliente
-<<<<<<< HEAD
-            return render_template('register.login.html',dato=js) 
-            
-            """
-=======
             return render_template('register.login.html',dato=js)
 
-@app.route('/consulta')
-def consulta_usuario():
-   return render_template("consulta.html")
 
 @app.route('/consulta_username',methods=['POST','GET']) #esto es para la consulta por un animal (individual)
 def consulta_id():
@@ -233,4 +224,3 @@ def consulta_id():
                 columna.append(i)        #con append agregamos lo que se consultó en la base de datos, solo cuando coincide lo que se le metio en la consulta desde el html 
         
         return render_template("consulta_username.html",Identificativo=variable,columna=columna)
->>>>>>> 25bdfd77cf37a8be137c22dfd80b22523e3f4d56

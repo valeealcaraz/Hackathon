@@ -12,7 +12,7 @@ ciertos campos a rellenar para tener el historial de los servicios, faltan mucha
 pero lo basico ya tiene. 
 
 
-"""
+""" 
 
 
 from flask import Flask, render_template, json, request
@@ -28,7 +28,8 @@ def main():
 
 @app.route('/showHome')
 def showHome():
-    return render_template('index.html') 
+    return render_template('index.html')  
+
 
 @app.route('/ingresar',methods=['POST','GET'])
 def ingresar():
@@ -160,8 +161,7 @@ def lista():
             }
        return js
 
-if __name__ == "__main__":
-    app.run(debug=True)
+
 
 @app.route('/register', methods=['POST','GET'])      # aca es para registrar al usuario
 def registro_usuario():
@@ -221,3 +221,6 @@ def consulta_id():
                 columna.append(i)        #con append agregamos lo que se consultó en la base de datos, solo cuando coincide lo que se le metio en la consulta desde el html 
         
         return render_template("consulta_username.html",Identificativo=variable,columna=columna)
+
+if __name__ == "__main__":
+    app.run(debug=True)

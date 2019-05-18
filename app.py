@@ -16,21 +16,24 @@ pero lo basico ya tiene.
 
 
 from flask import Flask, render_template, json, request
-import sqlite3 as sql 
+#import sqlite3 as sql 
 
 app=Flask(__name__, static_url_path='')
 
-nombre_db="base_datos3.db"   #nombre de la base de datos
+#nombre_db="base_datos3.db"   #nombre de la base de datos
+
+
 
 @app.route('/')
 def main():
-    return render_template('index.html')
+    return render_template('/index.html')
 
 
 @app.route('/showHome')
 def showHome():
     return render_template('index.html') 
 
+"""
 @app.route('/ingresar',methods=['POST','GET'])
 def ingresar():
     return render_template('ingresar.html')
@@ -168,3 +171,40 @@ def lista():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
+@app.route('/register.print', methods=['POST','GET'])      # aca es para registrar al usuario
+def registro():
+    if request.method=='POST':   
+        try:
+            Nombre_usuario=request.form['Username']                         #nombre de usuario
+            Apellido_usuario=request.form['Apellido']             #descripcion del servicio 
+            Nacimiento=request.form['Fecha de Nacimiento']  #input para fecha de nacimiento
+            Hobby=request.form['Hobby o Hobbies'] #Descripción de hobbies
+            Numero_de_telefono=request.form['Telefono'] #contacto
+            Correo=request.form['Correo']  
+            datos=[Nombre_usuario,Apellido_usuario,Nacimiento,Hobby,Numero_de_telefono,Correo]  # esto es para meter en la db luego
+            print(datos)
+            with sql.connect(nombre_db) as con:
+                    
+                cur = con.cursor()
+                cur.execute('''CREATE TABLE IF NOT EXISTS login (
+                                        Nombre_usuario text,
+                                        Apellido_usuario text,                                        
+                                        Nacimiento integer NOT NULL,
+                                        Hobby text,
+                                        Numero_de_telefono integer NOT NULL,
+                                        Correo text
+                                    );'''
+                       )
+                cur.execute('''INSERT INTO login (Nombre_usuario,Apellido_usuario,Nacimiento,Hobby,Numero_de_telefono,Correo) VALUES (?,?,?,?,?,?);''', datos )
+            
+                con.commit()   
+             
+        except sql.Error as e:
+            print(e)
+            con.rollback()
+
+        finally:
+            con.close()# cerramos la conexion de la base de datos 
+            js=lista()   #retornamos datos de la db para el form del lado del cliente
+            return render_template('register.login.html',dato=js)

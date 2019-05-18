@@ -207,4 +207,4 @@ def registro():
             con.close()# cerramos la conexion de la base de datos 
             js=lista()   #retornamos datos de la db para el form del lado del cliente
             return render_template('register.login.html',dato=js)
-"""
+  

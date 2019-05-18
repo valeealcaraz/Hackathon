@@ -1,9 +1,10 @@
-#_*_ coding:utf-8 _*_
+
+"""#_*_ coding:utf-8 _*_
     
 
 
 
-"""
+
 integrantes: Vale, fede, ale ,adolfo, vero
 fecha: 10-2-2019
 fecha de ultima edicion: 14 de mayo del 2019
@@ -12,7 +13,7 @@ ciertos campos a rellenar para tener el historial de los servicios, faltan mucha
 pero lo basico ya tiene. 
 
 
-"""
+
 
 
 from flask import Flask, render_template, json, request
@@ -26,7 +27,7 @@ nombre_db="base_datos3.db"   #nombre de la base de datos
 def main():
     return render_template('index.html')
 
-"""
+
 @app.route('/showHome')
 def showHome():
     return render_template('index.html')  

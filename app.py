@@ -170,7 +170,7 @@ def lista():
 if __name__ == "__main__":
     app.run(debug=True)
 
-@app.route('/register.print', methods=['POST','GET'])      # aca es para registrar al usuario
+@app.route('/register.login', methods=['POST','GET'])      # aca es para registrar al usuario
 def registro():
     if request.method=='POST':   
         try:
@@ -206,4 +206,25 @@ def registro():
             con.close()# cerramos la conexion de la base de datos 
             js=lista()   #retornamos datos de la db para el form del lado del cliente
             return render_template('register.login.html',dato=js)
-            
+
+@app.route('/consulta')
+def consulta():
+   return render_template("consulta.html")
+
+@app.route('/consulta_username',methods=['POST','GET']) #esto es para la consulta por un animal (individual)
+def consulta_id():
+    columna=[]                                   #creo una lista vacía
+    if request.method=='POST':                   
+        variable=request.form['inputName']      #guardamos para luego buscar en la base de datos
+        con = sql.connect(nombre_db)            #conectamos a la base de datos
+        con.row_factory = sql.Row               #confirmamos para que los datos que se consulte estén en fila
+    
+        cur = c on.cursor()
+        cur.execute("select * from login")   #hacemos la consulta y seleccionamos TODOS los datos de la base de dato
+    
+        rows = cur.fetchall()                
+        for i in rows:                   #recorremos la lista dentro de otra lista que está en rows
+            if variable==str(i["login"]):   #si coincide con la consulta, agregamos lo que se consulto 
+                columna.append(i)        #con append agregamos lo que se consultó en la base de datos, solo cuando coincide lo que se le metio en la consulta desde el html 
+        
+        return render_template("consulta_username.html",Identificativo=variable,columna=columna)

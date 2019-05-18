@@ -81,29 +81,48 @@
                   Sign Up
                 </h3>
             </div>
+            <form action = "{{ url_for('register') }}" onsubmit="return validar()" method = "POST">
+              <!--- <form class="form-signin">-->
             <div class="panel-body">
               <form accept-charset="UTF-8" role="form">
                 <fieldset>
                   <div class="form-group">
                     <div class="input-group input-group-lg">
                       <span class="input-group-addon"><i class="fa fa-fw fa-user"></i></span>
-                      <input type="text" class="form-control" placeholder="Usuario">
+                      <input type="text" class="form-control" placeholder="Username" name ="Username">
                     </div>
                   </div>
                   <div class="form-group">
                     <div class="input-group input-group-lg">
                       <span class="input-group-addon"><i class="fa fa-fw fa-envelope"></i></span>
-                      <input type="text" class="form-control" placeholder="Email">
+                      <input type="text" class="form-control" placeholder="Apellido" name="Apellido">
                     </div>
                   </div>
                   <div class="form-group">
                     <div class="input-group input-group-lg">
                       <span class="input-group-addon"><i class="fa fa-fw fa-lock"></i></span>
-                      <input type="password" class="form-control" placeholder="Contraseña">
+                      <input type="password" class="form-control" placeholder="Fecha_de_Nacimiento" name="Fecha_de_Nacimiento">
                     </div>
                   </div>
-
+                    <div class="form-group">
+                      <div class="input-group input-group-lg">
+                        <span class="input-group-addon"><i class="fa fa-fw fa-lock"></i></span>
+                        <input type="password" class="form-control" placeholder="Contrasenha" name="Contrasenha">
+                    </div>
                   </div>
+                  <div class="form-group">
+                    <div class="input-group input-group-lg">
+                      <span class="input-group-addon"><i class="fa fa-fw fa-lock"></i></span>
+                      <input type="password" class="form-control" placeholder="Telefono" name="Telefono">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group input-group-lg">
+                    <span class="input-group-addon"><i class="fa fa-fw fa-lock"></i></span>
+                    <input type="password" class="form-control" placeholder="Correo" name="Correo">
+                </div>
+              </div>
+                  <div class="form-group">
                   <input class="btn btn-lg btn-primary btn-block" type="submit" value="Sign Me Up">
                 </fieldset>
               </form>

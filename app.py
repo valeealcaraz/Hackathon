@@ -26,7 +26,6 @@ nombre_db="base_datos3.db"   #nombre de la base de datos
 def main():
     return render_template('index.html')
 
-
 @app.route('/showHome')
 def showHome():
     return render_template('index.html') 
@@ -82,11 +81,6 @@ def registro():
             return render_template('registro.html',dato=js)
             
 
-"""
-@app.route('/signUp',methods=['POST','GET'])
-def register():
-    return render_template('register.html')
-"""
 @app.route('/register',methods=['POST','GET'])
 def register():
     return render_template('register.html')
@@ -176,16 +170,16 @@ def registro_usuario():
         try:
             Nombre_usuario=request.form['Username']                         #nombre de usuario
             Apellido_usuario=request.form['Apellido']             #descripcion del servicio 
-            Nacimiento=request.form['Fecha de Nacimiento']  #input para fecha de nacimiento
-            Hobby=request.form['Hobby o Hobbies'] #Descripción de hobbies
+            Nacimiento=request.form['Fecha_de_Nacimiento']  #input para fecha de nacimiento
+            Contrasenha=request.form['Contrasenha'] #Descripción de hobbies
             Numero_de_telefono=request.form['Telefono'] #contacto
             Correo=request.form['Correo']  
-            datos=[Nombre_usuario,Apellido_usuario,Nacimiento,Hobby,Numero_de_telefono,Correo]  # esto es para meter en la db luego
+            datos=[Nombre_usuario,Apellido_usuario,Nacimiento,Contrasenha,Numero_de_telefono,Correo]  # esto es para meter en la db luego
             print(datos)
             with sql.connect(nombre_db) as con:
                     
                 cur = con.cursor()
-                cur.execute('''CREATE TABLE IF NOT EXISTS login (
+                cur.execute('''CREATE TABLE IF NOT EXISTS registro (
                                         Nombre_usuario text,
                                         Apellido_usuario text,                                        
                                         Nacimiento integer NOT NULL,
@@ -194,7 +188,7 @@ def registro_usuario():
                                         Correo text
                                     );'''
                        )
-                cur.execute('''INSERT INTO login (Nombre_usuario,Apellido_usuario,Nacimiento,Hobby,Numero_de_telefono,Correo) VALUES (?,?,?,?,?,?);''', datos )
+                cur.execute('''INSERT INTO registro (Nombre_usuario,Apellido_usuario,Nacimiento,Hobby,Numero_de_telefono,Correo) VALUES (?,?,?,?,?,?);''', datos )
             
                 con.commit()   
              
@@ -207,6 +201,9 @@ def registro_usuario():
             js=lista()   #retornamos datos de la db para el form del lado del cliente
             return render_template('register.html',dato=js)
 
+@app.route('/consulta')
+def consulta_usuario():
+   return render_template("consulta.html")
 
 @app.route('/consulta_username',methods=['POST','GET']) #esto es para la consulta por un animal (individual)
 def consulta_id():

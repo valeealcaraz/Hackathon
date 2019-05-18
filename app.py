@@ -20,11 +20,7 @@ import sqlite3 as sql
 
 app=Flask(__name__, static_url_path='')
 
-<<<<<<< HEAD
-#nombre_db="base_datos3.db"   #nombre de la base de datos
-=======
 nombre_db="base_datos3.db"   #nombre de la base de datos
->>>>>>> 25bdfd77cf37a8be137c22dfd80b22523e3f4d56
 
 @app.route('/')
 def main():
@@ -36,10 +32,6 @@ def main():
 def showHome():
     return render_template('index.html') 
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 25bdfd77cf37a8be137c22dfd80b22523e3f4d56
 @app.route('/ingresar',methods=['POST','GET'])
 def ingresar():
     return render_template('ingresar.html')

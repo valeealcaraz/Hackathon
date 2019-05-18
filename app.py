@@ -12,7 +12,7 @@ ciertos campos a rellenar para tener el historial de los servicios, faltan mucha
 pero lo basico ya tiene. 
 
 
-"""
+""" 
 
 
 from flask import Flask, render_template, json, request
@@ -26,15 +26,12 @@ nombre_db="base_datos3.db"   #nombre de la base de datos
 def main():
     return render_template('index.html')
 
-"""
+
 @app.route('/showHome')
 def showHome():
     return render_template('index.html')  
 
-<<<<<<< HEAD
 """
-=======
->>>>>>> c984bd294e160deed74fff3e4e261971357c71f8
 @app.route('/ingresar',methods=['POST','GET'])
 def ingresar():
     return render_template('ingresar.html')

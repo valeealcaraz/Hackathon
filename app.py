@@ -7,8 +7,8 @@
 integrantes: Vale, fede, ale ,adolfo, vero
 fecha: 10-2-2019
 fecha de ultima edicion: 14 de mayo del 2019
-descripcion: Es un sistema de inscripcion para animales, regalo para mi papá, tiene
-ciertos campos a rellenar para tener el historial de los animales, faltan muchas funcionalidades
+descripcion: Es un sistema de inscripcion para servicios tiene
+ciertos campos a rellenar para tener el historial de los servicios, faltan muchas funcionalidades
 pero lo basico ya tiene. 
 
 

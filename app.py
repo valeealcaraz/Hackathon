@@ -31,6 +31,10 @@ def main():
 def showHome():
     return render_template('index.html') 
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> cf1eeda7ee8433ab22ec93dd285e2eeecdce3cab
 @app.route('/ingresar',methods=['POST','GET'])
 def ingresar():
     return render_template('ingresar.html')
@@ -168,3 +172,62 @@ def lista():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
+@app.route('/register.login', methods=['POST','GET'])      # aca es para registrar al usuario
+def registro():
+    if request.method=='POST':   
+        try:
+            Nombre_usuario=request.form['Username']                         #nombre de usuario
+            Apellido_usuario=request.form['Apellido']             #descripcion del servicio 
+            Nacimiento=request.form['Fecha de Nacimiento']  #input para fecha de nacimiento
+            Hobby=request.form['Hobby o Hobbies'] #Descripción de hobbies
+            Numero_de_telefono=request.form['Telefono'] #contacto
+            Correo=request.form['Correo']  
+            datos=[Nombre_usuario,Apellido_usuario,Nacimiento,Hobby,Numero_de_telefono,Correo]  # esto es para meter en la db luego
+            print(datos)
+            with sql.connect(nombre_db) as con:
+                    
+                cur = con.cursor()
+                cur.execute('''CREATE TABLE IF NOT EXISTS login (
+                                        Nombre_usuario text,
+                                        Apellido_usuario text,                                        
+                                        Nacimiento integer NOT NULL,
+                                        Hobby text,
+                                        Numero_de_telefono integer NOT NULL,
+                                        Correo text
+                                    );'''
+                       )
+                cur.execute('''INSERT INTO login (Nombre_usuario,Apellido_usuario,Nacimiento,Hobby,Numero_de_telefono,Correo) VALUES (?,?,?,?,?,?);''', datos )
+            
+                con.commit()   
+             
+        except sql.Error as e:
+            print(e)
+            con.rollback()
+
+        finally:
+            con.close()# cerramos la conexion de la base de datos 
+            js=lista()   #retornamos datos de la db para el form del lado del cliente
+            return render_template('register.login.html',dato=js)
+
+@app.route('/consulta')
+def consulta():
+   return render_template("consulta.html")
+
+@app.route('/consulta_username',methods=['POST','GET']) #esto es para la consulta por un animal (individual)
+def consulta_id():
+    columna=[]                                   #creo una lista vacía
+    if request.method=='POST':                   
+        variable=request.form['inputName']      #guardamos para luego buscar en la base de datos
+        con = sql.connect(nombre_db)            #conectamos a la base de datos
+        con.row_factory = sql.Row               #confirmamos para que los datos que se consulte estén en fila
+    
+        cur = c on.cursor()
+        cur.execute("select * from login")   #hacemos la consulta y seleccionamos TODOS los datos de la base de dato
+    
+        rows = cur.fetchall()                
+        for i in rows:                   #recorremos la lista dentro de otra lista que está en rows
+            if variable==str(i["login"]):   #si coincide con la consulta, agregamos lo que se consulto 
+                columna.append(i)        #con append agregamos lo que se consultó en la base de datos, solo cuando coincide lo que se le metio en la consulta desde el html 
+        
+        return render_template("consulta_username.html",Identificativo=variable,columna=columna)

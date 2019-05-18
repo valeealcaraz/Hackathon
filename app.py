@@ -7,8 +7,8 @@
 integrantes: Vale, fede, ale ,adolfo, vero
 fecha: 10-2-2019
 fecha de ultima edicion: 14 de mayo del 2019
-descripcion: Es un sistema de inscripcion para animales, regalo para mi papá, tiene
-ciertos campos a rellenar para tener el historial de los animales, faltan muchas funcionalidades
+descripcion: Es un sistema de inscripcion para servicios tiene
+ciertos campos a rellenar para tener el historial de los servicios, faltan muchas funcionalidades
 pero lo basico ya tiene. 
 
 
@@ -16,15 +16,19 @@ pero lo basico ya tiene.
 
 
 from flask import Flask, render_template, json, request
-#import sqlite3 as sql 
+import sqlite3 as sql 
 
 app=Flask(__name__, static_url_path='')
 
+<<<<<<< HEAD
 #nombre_db="base_datos3.db"   #nombre de la base de datos
+=======
+nombre_db="base_datos3.db"   #nombre de la base de datos
+>>>>>>> 25bdfd77cf37a8be137c22dfd80b22523e3f4d56
 
 @app.route('/')
 def main():
-    return render_template('/index.html')
+    return render_template('index.html')
 
 
 """
@@ -32,14 +36,17 @@ def main():
 def showHome():
     return render_template('index.html') 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 25bdfd77cf37a8be137c22dfd80b22523e3f4d56
 @app.route('/ingresar',methods=['POST','GET'])
 def ingresar():
     return render_template('ingresar.html')
 
-@app.route('/showSignUp',methods=['POST','GET'])
-def showSignUp():
-    return render_template('signup.html')
+@app.route('/showlogin',methods=['POST','GET'])
+def showlogin():
+    return render_template('login.html')
 
 @app.route('/formulario')
 def formulario():
@@ -109,23 +116,24 @@ def list():
 def consulta():
    return render_template("consulta.html")
 
-@app.route('/consulta_servicio',methods=['POST','GET']) #esto es para la consulta por un animal (individual)
-def consulta_id():
+@app.route('/consulta_servicio',methods=['POST','GET']) #esto es para la consulta por un serivico (individual)
+def consulta_servicio():
     columna=[]                                   #creo una lista vacía
     if request.method=='POST':                   
         variable=request.form['inputName']      #guardamos para luego buscar en la base de datos
+        print(type(variable))
         con = sql.connect(nombre_db)            #conectamos a la base de datos
         con.row_factory = sql.Row               #confirmamos para que los datos que se consulte estén en fila
     
         cur = con.cursor()
-        cur.execute("select * from servicio")   #hacemos la consulta y seleccionamos TODOS los datos de la base de dato
+        cur.execute("select * from servicios")   #hacemos la consulta y seleccionamos TODOS los datos de la base de dato
     
         rows = cur.fetchall()                
         for i in rows:                   #recorremos la lista dentro de otra lista que está en rows
-            if variable==str(i["servicio"]):   #si coincide con la consulta, agregamos lo que se consulto 
+            if variable==str(i["Servicio"]):   #si coincide con la consulta, agregamos lo que se consulto 
                 columna.append(i)        #con append agregamos lo que se consultó en la base de datos, solo cuando coincide lo que se le metio en la consulta desde el html 
         
-        return render_template("lista_servicio.html",Identificativo=variable,columna=columna)
+        return render_template("consulta_servicio.html",Identificativo=variable,columna=columna)
 
 
 def lista():
@@ -170,8 +178,8 @@ def lista():
 if __name__ == "__main__":
     app.run(debug=True)
 
-@app.route('/register.print', methods=['POST','GET'])      # aca es para registrar al usuario
-def registro():
+@app.route('/register.login', methods=['POST','GET'])      # aca es para registrar al usuario
+def registro_usuario():
     if request.method=='POST':   
         try:
             Nombre_usuario=request.form['Username']                         #nombre de usuario
@@ -205,6 +213,32 @@ def registro():
         finally:
             con.close()# cerramos la conexion de la base de datos 
             js=lista()   #retornamos datos de la db para el form del lado del cliente
+<<<<<<< HEAD
             return render_template('register.login.html',dato=js) 
             
             """
+=======
+            return render_template('register.login.html',dato=js)
+
+@app.route('/consulta')
+def consulta_usuario():
+   return render_template("consulta.html")
+
+@app.route('/consulta_username',methods=['POST','GET']) #esto es para la consulta por un animal (individual)
+def consulta_id():
+    columna=[]                                   #creo una lista vacía
+    if request.method=='POST':                   
+        variable=request.form['inputName']      #guardamos para luego buscar en la base de datos
+        con = sql.connect(nombre_db)            #conectamos a la base de datos
+        con.row_factory = sql.Row               #confirmamos para que los datos que se consulte estén en fila
+    
+        cur = con.cursor()
+        cur.execute("select * from login")   #hacemos la consulta y seleccionamos TODOS los datos de la base de dato
+    
+        rows = cur.fetchall()                
+        for i in rows:                   #recorremos la lista dentro de otra lista que está en rows
+            if variable==str(i["login"]):   #si coincide con la consulta, agregamos lo que se consulto 
+                columna.append(i)        #con append agregamos lo que se consultó en la base de datos, solo cuando coincide lo que se le metio en la consulta desde el html 
+        
+        return render_template("consulta_username.html",Identificativo=variable,columna=columna)
+>>>>>>> 25bdfd77cf37a8be137c22dfd80b22523e3f4d56

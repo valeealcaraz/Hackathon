@@ -22,13 +22,12 @@ app=Flask(__name__, static_url_path='')
 
 #nombre_db="base_datos3.db"   #nombre de la base de datos
 
-
-
 @app.route('/')
 def main():
     return render_template('/index.html')
 
 
+"""
 @app.route('/showHome')
 def showHome():
     return render_template('index.html') 
@@ -208,4 +207,4 @@ def registro():
             js=lista()   #retornamos datos de la db para el form del lado del cliente
             return render_template('register.login.html',dato=js) 
             
-            
+            """

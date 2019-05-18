@@ -12,7 +12,7 @@ ciertos campos a rellenar para tener el historial de los servicios, faltan mucha
 pero lo basico ya tiene. 
 
 
-""" 
+"""
 
 
 from flask import Flask, render_template, json, request
@@ -28,8 +28,7 @@ def main():
 
 @app.route('/showHome')
 def showHome():
-    return render_template('index.html')  
-
+    return render_template('index.html') 
 
 @app.route('/ingresar',methods=['POST','GET'])
 def ingresar():
@@ -81,11 +80,11 @@ def registro():
             js=lista()   #retornamos datos de la db para el form del lado del cliente
             return render_template('registro.html',dato=js)
             
-"""
+
 @app.route('/register',methods=['POST','GET'])
 def register():
     return render_template('register.html')
-"""
+
 @app.route('/list')
 def list():
    con = sql.connect(nombre_db)   
@@ -161,6 +160,8 @@ def lista():
             }
        return js
 
+if __name__ == "__main__":
+    app.run(debug=True)
 
 
 @app.route('/register', methods=['POST','GET'])      # aca es para registrar al usuario
@@ -180,7 +181,7 @@ def registro_usuario():
                 cur = con.cursor()
                 cur.execute('''CREATE TABLE IF NOT EXISTS registro (
                                         Nombre_usuario text,
-                                         Apellido_usuario text,                                        
+                                        Apellido_usuario text,                                        
                                         Nacimiento integer NOT NULL,
                                         Hobby text,
                                         Numero_de_telefono integer NOT NULL,
@@ -221,6 +222,3 @@ def consulta_id():
                 columna.append(i)        #con append agregamos lo que se consultó en la base de datos, solo cuando coincide lo que se le metio en la consulta desde el html 
         
         return render_template("consulta_username.html",Identificativo=variable,columna=columna)
-
-if __name__ == "__main__":
-    app.run(debug=True)

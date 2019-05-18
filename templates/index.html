@@ -140,7 +140,11 @@
                 <li class="user-button"><a class="btn btn-primary btn-hh-trigger" role="button" data-toggle="collapse" data-target=".header-hidden">Open</a></li>
               </ul>
               <ul class="list-inline user-menu pull-right">
+<<<<<<< HEAD
                 <li class="user-register"><i class="fa fa-edit text-primary "></i> <a href="register.html" class="text-uppercase">Regístrate</a></li>
+=======
+                <li class="user-register"><i class="fa fa-edit text-primary "></i> <a href="register" class="text-uppercase">Regítrate</a></li>
+>>>>>>> 9e4baa123dccaab82cb9c57c38212a76a868b856
                 <li class="user-login"><i class="fa fa-sign-in text-primary"></i> <a href="login.html" class="text-uppercase">Inicia Sesión</a></li>
               </ul>
             </div>
@@ -230,7 +234,12 @@
                      Elige lo que deseas aprender
                     </h4>
                   <p>Una página creada para que puedas compatir tus hobbies y aprender en el mismo lugar  a desarrollar otras habilidades</p>
-                  <a href="https://bootstrapmade.com" class="btn btn-more btn-lg i-right">Buy Now <i class="fa fa-plus"></i></a>
+                  <div>
+                    <form action = "{{ url_for('consulta_servicio') }}" method = "POST">
+                      <input type="name" name="inputName" id="inputName" class="form-control" placeholder="Servicio a consultar" required autofocus>
+                      <input type = "submit" value = "Consultar" class="btn btn-lg btn-primary btn-block"/><br>
+                    </form>
+            </div>
                 </div>
                 <div class="col-md-6 col-md-pull-6 hidden-xs">
                   <img src="img/slides/M1.jpg" alt="Slide 1" class="center-block img-responsive">

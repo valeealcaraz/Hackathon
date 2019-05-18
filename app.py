@@ -82,14 +82,14 @@ def registro():
             return render_template('registro.html',dato=js)
             
 
-
+"""
 @app.route('/signUp',methods=['POST','GET'])
 def register():
     return render_template('register.html')
-
+"""
 @app.route('/register',methods=['POST','GET'])
-def signUp():
-    return render_template('signup.html')
+def register():
+    return render_template('register.html')
 
 @app.route('/list')
 def list():
@@ -169,7 +169,8 @@ def lista():
 if __name__ == "__main__":
     app.run(debug=True)
 
-@app.route('/register.login', methods=['POST','GET'])      # aca es para registrar al usuario
+"""
+@app.route('/register', methods=['POST','GET'])      # aca es para registrar al usuario
 def registro_usuario():
     if request.method=='POST':   
         try:
@@ -204,7 +205,7 @@ def registro_usuario():
         finally:
             con.close()# cerramos la conexion de la base de datos 
             js=lista()   #retornamos datos de la db para el form del lado del cliente
-            return render_template('register.login.html',dato=js)
+            return render_template('register.html',dato=js)
 
 
 @app.route('/consulta_username',methods=['POST','GET']) #esto es para la consulta por un animal (individual)
@@ -224,3 +225,4 @@ def consulta_id():
                 columna.append(i)        #con append agregamos lo que se consultó en la base de datos, solo cuando coincide lo que se le metio en la consulta desde el html 
         
         return render_template("consulta_username.html",Identificativo=variable,columna=columna)
+"""

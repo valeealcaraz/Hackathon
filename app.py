@@ -206,9 +206,6 @@ def registro_usuario():
             js=lista()   #retornamos datos de la db para el form del lado del cliente
             return render_template('register.login.html',dato=js)
 
-@app.route('/consulta')
-def consulta_usuario():
-   return render_template("consulta.html")
 
 @app.route('/consulta_username',methods=['POST','GET']) #esto es para la consulta por un animal (individual)
 def consulta_id():

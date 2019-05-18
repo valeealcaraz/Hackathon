@@ -26,7 +26,7 @@ nombre_db="base_datos3.db"   #nombre de la base de datos
 def main():
     return render_template('index.html')
 
-
+"""
 @app.route('/showHome')
 def showHome():
     return render_template('index.html') 
@@ -224,3 +224,4 @@ def consulta_id():
                 columna.append(i)        #con append agregamos lo que se consultó en la base de datos, solo cuando coincide lo que se le metio en la consulta desde el html 
         
         return render_template("consulta_username.html",Identificativo=variable,columna=columna)
+"""

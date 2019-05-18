@@ -33,7 +33,7 @@ def main():
 def showHome():
     return render_template('index.html') 
 
-"""
+
 @app.route('/ingresar',methods=['POST','GET'])
 def ingresar():
     return render_template('ingresar.html')
@@ -206,5 +206,6 @@ def registro():
         finally:
             con.close()# cerramos la conexion de la base de datos 
             js=lista()   #retornamos datos de la db para el form del lado del cliente
-            return render_template('register.login.html',dato=js)
-  
+            return render_template('register.login.html',dato=js) 
+            
+            

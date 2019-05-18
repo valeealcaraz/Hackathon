@@ -24,7 +24,7 @@ nombre_db="base_datos3.db"   #nombre de la base de datos
 
 @app.route('/')
 def main():
-    return render_template('Flexor/index.html')
+    return render_template('index.html')
 
 
 @app.route('/showHome')

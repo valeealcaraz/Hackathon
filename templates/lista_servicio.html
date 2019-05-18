@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
- <title>Ñande Rymba</title>
+ <title>Ventas hobbies</title>
    <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -22,11 +22,11 @@
                 
                    </ul>
                  </nav>
-                 <h3 class="text-muted">Consulta de animales</h3>
+                 <h3 class="text-muted">Consulta de servicios</h3>
                </div>
                
                <div class="jumbotron" >
-                     <h1>Ganaderia</h1>
+                     <h1>Servicios</h1>
                      <p class="lead"></p>
                </div>
       <h1 class="container-fluid">Resultado de la consulta de la base de datos </h1>
@@ -34,20 +34,20 @@
          <thead>
             <td align="center">Servicio</td>
             <td align="center">Descripcion del producto</td>
-            <td align="center">Peso</td>
-            <td align="center">Dosis</td>
-            <td align="center">Fecha</td>
-            <td align="center">Vacunas aplicadas</td>
+            <td align="center">Horas por semana</td>
+            <td align="center">Precio por hora</td>
+            <td align="center">Contacto</td>
+            <td align="center">Correo</td>
          </thead>
          {% for row in columna %}       
          <tr>
             
-            <td align="center">{{row["Id"]}}</td>
-            <td align="center">{{row["Nombre"]}}</td>
-            <td align="center">{{row["Peso"]}}</td>
-            <td align="center"> {{row["Dosis"]}}</td>
-            <td align="center">{{row['Ultimafecha']}}</td>	
-            <td align="center"> {{ row["Vacunas"]}}</td>
+            <td align="center">{{row["Servicio"]}}</td>
+            <td align="center">{{row["Descripcion_del_producto"]}}</td>
+            <td align="center">{{row["Horas_por_semana"]}}</td>
+            <td align="center"> {{row["Precio_por_hora"]}}</td>
+            <td align="center">{{row['Contacto']}}</td>	
+            <td align="center"> {{ row["Correo"]}}</td>
            
          </tr>
         
@@ -58,7 +58,7 @@
        -->  
         
       </table>
-      <a href = "/formulario">Regresar para registrar otro animal</a>
+      <a href = "/formulario">Regresar para registrar otro servicio</a>
       <br> 
       <a href = "/">Regresar a la página principal</a>
    </body>

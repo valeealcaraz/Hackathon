@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <title>Venta hobbies</title>
+
+   <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+  </head>
+
+  <body>
+
+    <div class="container-fluid">
+      <div class="header">
+        <nav>
+          <ul class="nav nav-pills pull-right">
+            <li role="presentation" class="active"><a href="/">Inicio</a></li>
+            <li role="presentation"><a href="/showlogin">Registrarse</a></li>
+            <li role="presentation"><a href="/formulario">Formulario</a></li>
+            <li role="presentation"><a href="/list">Lista</a></li>
+ 	    <li role="presentation"><a href="/showlogin">Entrar</a></li>
+          </ul>
+        </nav>
+        <h3 class="text-muted">Consulta de servicio</h3>
+      </div>
+
+      <div class="jumbotron" >
+        <h1>Hobbies</h1>
+        <p class="lead"></p>
+      </div>
+     
+      <div>
+              <form action = "{{ url_for('consulta_servicio') }}" method = "POST">
+                <input type="name" name="inputName" id="inputName" class="form-control" placeholder="Servicio a consultar" required autofocus>
+                <input type = "submit" value = "Consultar" class="btn btn-lg btn-primary btn-block"/><br>
+              </form>
+       </div>
+
+
+      <footer class="footer">
+        <p>&copy; Alejandro Mendez 2019</p>
+      </footer>
+
+    </div>
+  </body>
+</html>

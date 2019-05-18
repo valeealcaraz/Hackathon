@@ -170,7 +170,7 @@ def lista():
 if __name__ == "__main__":
     app.run(debug=True)
 
-@app.route('/registro.login', methods=['POST','GET'])      # aca es para registrar al usuario
+@app.route('/register.print', methods=['POST','GET'])      # aca es para registrar al usuario
 def registro():
     if request.method=='POST':   
         try:
@@ -205,4 +205,4 @@ def registro():
         finally:
             con.close()# cerramos la conexion de la base de datos 
             js=lista()   #retornamos datos de la db para el form del lado del cliente
-            return render_template('registro.login.html',dato=js)
+            return render_template('register.print.html',dato=js)

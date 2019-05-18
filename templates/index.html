@@ -140,7 +140,11 @@
                 <li class="user-button"><a class="btn btn-primary btn-hh-trigger" role="button" data-toggle="collapse" data-target=".header-hidden">Open</a></li>
               </ul>
               <ul class="list-inline user-menu pull-right">
-                <li class="user-register"><i class="fa fa-edit text-primary "></i> <a href="register.html" class="text-uppercase">Regítrate</a></li>
+<<<<<<< HEAD
+                <li class="user-register"><i class="fa fa-edit text-primary "></i> <a href="register.html" class="text-uppercase">Regístrate</a></li>
+=======
+                <li class="user-register"><i class="fa fa-edit text-primary "></i> <a href="register" class="text-uppercase">Regítrate</a></li>
+>>>>>>> 9e4baa123dccaab82cb9c57c38212a76a868b856
                 <li class="user-login"><i class="fa fa-sign-in text-primary"></i> <a href="login.html" class="text-uppercase">Inicia Sesión</a></li>
               </ul>
             </div>
@@ -166,14 +170,14 @@
                 <a href="index.html"><i class="fa fa-home"></i></a>
               </li>
               <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages<b class="caret"></b></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Página<b class="caret"></b></a>
                 <!-- Dropdown Menu -->
                 <ul class="dropdown-menu">
-                  <li class="dropdown-header">Flexor Version Pages</li>
-                  <li><a href="elements.html" tabindex="-1" class="menu-item">Elements</a></li>
-                  <li><a href="about.html" tabindex="-1" class="menu-item">About / Inner Page</a></li>
-                  <li><a href="login.html" tabindex="-1" class="menu-item">Login</a></li>
-                  <li><a href="register.html" tabindex="-1" class="menu-item">Sign-Up</a></li>
+                  <li class="dropdown-header">Hobbies version</li>
+                  <li><a href="elements.html" tabindex="-1" class="menu-item">Elementos</a></li>
+                  <li><a href="about.html" tabindex="-1" class="menu-item">Quienes somos</a></li>
+                  <li><a href="login.html" tabindex="-1" class="menu-item">Inicia Sesión</a></li>
+                  <li><a href="register.html" tabindex="-1" class="menu-item">Regístrate</a></li>
                   <li class="dropdown-footer">Dropdown footer</li>
                 </ul>
               </li>
@@ -185,16 +189,16 @@
                   <li class="row">
                     <ul class="col-md-6">
                       <li class="dropdown-header">Websites and Apps</li>
-                      <li><a href="#">Analysis and Planning</a></li>
-                      <li><a href="#">User Experience / Information Architecture</a></li>
-                      <li><a href="#">User Interface Design / UI Design</a></li>
-                      <li><a href="#">Code &amp; Development / Implementation &amp; Support</a></li>
+                      <li><a href="#">elemento1</a></li>
+                      <li><a href="#">elemento2</a></li>
+                      <li><a href="#">elemento3</a></li>
+                      <li><a href="#">elemento4</a></li>
                     </ul>
                     <ul class="col-md-6">
                       <li class="dropdown-header">Enterprise solutions</li>
-                      <li><a href="#">Business Analysis</a></li>
-                      <li><a href="#">Custom UX Consulting</a></li>
-                      <li><a href="#">Quality Assurance</a></li>
+                      <li><a href="#">elemento5</a></li>
+                      <li><a href="#">elemento6</a></li>
+                      <li><a href="#">elemento7</a></li>
                     </ul>
                   </li>
                   <li class="dropdown-footer">
@@ -230,7 +234,18 @@
                      Elige lo que deseas aprender
                     </h4>
                   <p>Una página creada para que puedas compatir tus hobbies y aprender en el mismo lugar  a desarrollar otras habilidades</p>
-                  <a href="https://bootstrapmade.com" class="btn btn-more btn-lg i-right">Buy Now <i class="fa fa-plus"></i></a>
+                  <div>
+                    <form action = "{{ url_for('consulta_servicio') }}" method = "POST">
+                      <input type="name" name="inputName" id="inputName" class="form-control" placeholder="Servicio" required autofocus>
+                      <input type = "submit" value = "Consultar" class="btn btn-lg btn-primary btn-block"/><br>
+                    </form>
+            </div>
+            <div>
+              <form action = "{{ url_for('consulta_username') }}" method = "POST">
+                <input type="name" name="inputName" id="inputName" class="form-control" placeholder="Usuario" required autofocus>
+                <input type = "submit" value = "Consultar" class="btn btn-lg btn-primary btn-block"/><br>
+              </form>
+      </div>
                 </div>
                 <div class="col-md-6 col-md-pull-6 hidden-xs">
                   <img src="img/slides/M1.jpg" alt="Slide 1" class="center-block img-responsive">

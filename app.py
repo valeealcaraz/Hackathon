@@ -7,8 +7,8 @@
 integrantes: Vale, fede, ale ,adolfo, vero
 fecha: 10-2-2019
 fecha de ultima edicion: 14 de mayo del 2019
-descripcion: Es un sistema de inscripcion para animales, regalo para mi papá, tiene
-ciertos campos a rellenar para tener el historial de los animales, faltan muchas funcionalidades
+descripcion: Es un sistema de inscripcion para servicios tiene
+ciertos campos a rellenar para tener el historial de los servicios, faltan muchas funcionalidades
 pero lo basico ya tiene. 
 
 
@@ -26,12 +26,15 @@ nombre_db="base_datos3.db"   #nombre de la base de datos
 def main():
     return render_template('index.html')
 
-
+"""
 @app.route('/showHome')
 def showHome():
     return render_template('index.html')  
 
+<<<<<<< HEAD
 """
+=======
+>>>>>>> c984bd294e160deed74fff3e4e261971357c71f8
 @app.route('/ingresar',methods=['POST','GET'])
 def ingresar():
     return render_template('ingresar.html')
@@ -171,7 +174,7 @@ if __name__ == "__main__":
     app.run(debug=True)
 
 @app.route('/register.login', methods=['POST','GET'])      # aca es para registrar al usuario
-def registro():
+def registro_usuario():
     if request.method=='POST':   
         try:
             Nombre_usuario=request.form['Username']                         #nombre de usuario
@@ -207,9 +210,6 @@ def registro():
             js=lista()   #retornamos datos de la db para el form del lado del cliente
             return render_template('register.login.html',dato=js)
 
-@app.route('/consulta')
-def consulta():
-   return render_template("consulta.html")
 
 @app.route('/consulta_username',methods=['POST','GET']) #esto es para la consulta por un animal (individual)
 def consulta_id():
@@ -219,7 +219,7 @@ def consulta_id():
         con = sql.connect(nombre_db)            #conectamos a la base de datos
         con.row_factory = sql.Row               #confirmamos para que los datos que se consulte estén en fila
     
-        cur = c on.cursor()
+        cur = con.cursor()
         cur.execute("select * from login")   #hacemos la consulta y seleccionamos TODOS los datos de la base de dato
     
         rows = cur.fetchall()                

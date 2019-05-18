@@ -20,9 +20,6 @@ import sqlite3 as sql
 
 app=Flask(__name__, static_url_path='')
 
-<<<<<<< HEAD
-#nombre_db="base_datos3.db"   #nombre de la base de datos
-=======
 nombre_db="base_datos3.db"   #nombre de la base de datos
 
 @app.route('/')
@@ -30,15 +27,10 @@ def main():
     return render_template('index.html')
 
 
-"""
 @app.route('/showHome')
 def showHome():
     return render_template('index.html') 
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 25bdfd77cf37a8be137c22dfd80b22523e3f4d56
 @app.route('/ingresar',methods=['POST','GET'])
 def ingresar():
     return render_template('ingresar.html')
@@ -212,11 +204,6 @@ def registro_usuario():
         finally:
             con.close()# cerramos la conexion de la base de datos 
             js=lista()   #retornamos datos de la db para el form del lado del cliente
-<<<<<<< HEAD
-            return render_template('register.login.html',dato=js) 
-            
-            """
-=======
             return render_template('register.login.html',dato=js)
 
 
@@ -237,4 +224,3 @@ def consulta_id():
                 columna.append(i)        #con append agregamos lo que se consultó en la base de datos, solo cuando coincide lo que se le metio en la consulta desde el html 
         
         return render_template("consulta_username.html",Identificativo=variable,columna=columna)
->>>>>>> 25bdfd77cf37a8be137c22dfd80b22523e3f4d56

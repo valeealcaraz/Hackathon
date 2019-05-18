@@ -27,22 +27,45 @@
  	    <li role="presentation"><a href="/showlogin">Entrar</a></li>
           </ul>
         </nav>
-        <h3 class="text-muted">Consulta de servicio</h3>
+        <h3 class="text-muted">Consulta de usuario</h3>
       </div>
 
       <div class="jumbotron" >
-        <h1>Hobbies</h1>
+        <h1>Usuarios</h1>
         <p class="lead"></p>
       </div>
      
       <div>
-              <form action = "{{ url_for('consulta_servicio') }}" method = "POST">
-                <input type="name" name="inputName" id="inputName" class="form-control" placeholder="Servicio a consultar" required autofocus>
-                <input type = "submit" value = "Consultar" class="btn btn-lg btn-primary btn-block"/><br>
-              </form>
+        <form action = "{{ url_for('consulta_username') }}" method = "POST">
+          <input type="name" name="inputName" id="inputName" class="form-control" placeholder="Servicio a consultar" required autofocus>
+          <input type = "submit" value = "Consultar" class="btn btn-lg btn-primary btn-block"/><br>
+        </form>
+ </div>
+
+        <h1 class="container-fluid">Resultado de la consulta de la base de datos </h1>
+        <table border = 4>
+            <thead>
+              <td align="center">Username</td>
+              <td align="center">Apellido</td>
+              <td align="center">Fecha de nacimiento</td>
+              <td align="center">Contrasenha</td>
+              <td align="center">Telefono</td>
+              <td align="center">Correo</td>
+            </thead>
+            {% for row in columna %}       
+            <tr>
+              
+              <td align="center">{{row["Nombre_usuario"]}}</td>
+              <td align="center">{{row["Apellido_usuario"]}}</td>
+              <td align="center">{{row["Nacimiento"]}}</td>
+              <td align="center"> {{row["Contrasenha"]}}</td>
+              <td align="center">{{row['Numero_de_telefono']}}</td>	
+              <td align="center"> {{ row["Correo"]}}</td>
+            
+          </tr>
+        
+      {% endfor %}
        </div>
-
-
       <footer class="footer">
         <p>&copy; Alejandro Mendez 2019</p>
       </footer>

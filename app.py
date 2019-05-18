@@ -30,11 +30,8 @@ def main():
 @app.route('/showHome')
 def showHome():
     return render_template('index.html')  
-
-<<<<<<< HEAD
 """
-=======
->>>>>>> c984bd294e160deed74fff3e4e261971357c71f8
+"""
 @app.route('/ingresar',methods=['POST','GET'])
 def ingresar():
     return render_template('ingresar.html')

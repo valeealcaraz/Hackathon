@@ -1,8 +1,6 @@
 #_*_ coding:utf-8 _*_
     
 
-
-
 """
 integrantes: Vale, fede, ale ,adolfo, vero
 fecha: 10-2-2019

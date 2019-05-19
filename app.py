@@ -13,7 +13,7 @@ ciertos campos a rellenar para tener el historial de los servicios, faltan mucha
 pero lo basico ya tiene. 
 
 
-
+"""
 
 
 from flask import Flask, render_template, json, request
@@ -28,19 +28,10 @@ def main():
     print("adfdsdf")
     return render_template('index.html')
 
-<<<<<<< HEAD
-
-@app.route('/showHome')
-def showHome():
-    return render_template('index.html')  
-"""
-"""
-=======
 @app.route('/showHome')
 def showHome():
     return render_template('index.html') 
 
->>>>>>> 80c91145c4317bb2cb0c1f04960d2cd1342b62a2
 @app.route('/ingresar',methods=['POST','GET'])
 def ingresar():
     return render_template('ingresar.html')
@@ -155,14 +146,14 @@ def lista():
    except:            #si tiene problemas puede ser porque no existe la base de datos
        with sql.connect(nombre_db) as con:        
            cur = con.cursor()
-           cur.execute('''CREATE TABLE IF NOT EXISTS servicios (
+           cur.execute("""CREATE TABLE IF NOT EXISTS servicios (
                                         Servicio text,
                                         Descripcion_del_producto text,                                        
                                         Horas_por_semana integer NOT NULL,
                                         Precio_por_hora integer NOT NULL,
                                         Contacto number,
                                         Correo text
-                                    );'''
+                                    );"""
                        )
            js={
              'Servicio': " ",  

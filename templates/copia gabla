@@ -1,0 +1,38 @@
+<table class="table table-sm">
+  <thead>
+    <tr>
+      <th scope="col">Servicio</th>
+      <th scope="col">Descripción</th>
+      <th scope="col">Disponibilidad</th>
+      <th scope="col">Precio/hora</th>
+      <th scope="col">Teléfono</th>
+      <th scope="col">Correo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>align="center">{{row["Servicio"]}}</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>align="center">{{row["Descripcion_del_Producto"]}}</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>align="center">{{row["Horas_por_semana"]}}</td>
+    </tr>
+    <tr>
+      <th scope="row">4</th>
+      <td>align="center">{{row["Precio_por_hora"]}}</td>
+    </tr>
+    <tr>
+      <th scope="row">5</th>
+      <td>align="center">{{row["Contacto"]}}</td>
+    </tr>
+    <tr>
+      <th scope="row">6</th>
+      <td>align="center">{{row["Contacto"]}}</td>
+    </tr>
+  </tbody>
+</table>

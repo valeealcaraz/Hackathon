@@ -11,6 +11,7 @@ pero lo basico ya tiene.
 """
 
 
+
 from flask import Flask, render_template, json, request
 import sqlite3 as sql 
 
@@ -23,9 +24,12 @@ def main():
     print("adfdsdf")
     return render_template('index.html')
 
+
 @app.route('/showHome')
 def showHome():
-    return render_template('index.html') 
+    return render_template('index.html')  
+
+
 
 @app.route('/ingresar',methods=['POST','GET'])
 def ingresar():
@@ -148,7 +152,7 @@ def lista():
                                         Precio_por_hora integer NOT NULL,
                                         Contacto number,
                                         Correo text
-                                    );"""
+                                    ); """
                        )
            js={
              'Servicio': " ",  

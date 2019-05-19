@@ -1,65 +1,150 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
- <title>Venta hobbies</title>
-   <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <meta charset="utf-8">
+  <title>Venta de Hobbies</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
 
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  <!-- Facebook Opengraph integration: https://developers.facebook.com/docs/sharing/opengraph -->
+  <meta property="og:title" content="">
+  <meta property="og:image" content="">
+  <meta property="og:url" content="">
+  <meta property="og:site_name" content="">
+  <meta property="og:description" content="">
 
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <!-- Twitter Cards integration: https://dev.twitter.com/cards/  -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="">
+  <meta name="twitter:title" content="">
+  <meta name="twitter:description" content="">
+  <meta name="twitter:image" content="">
 
+  <!-- Fav and touch icons -->
+  <link rel="shortcut icon" href="img/icons/favicon.png">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/icons/114x114.png">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/icons/72x72.png">
+  <link rel="apple-touch-icon-precomposed" href="img/icons/default.png">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900" rel="stylesheet">
+
+  <!-- Bootstrap CSS File -->
+  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Libraries CSS Files -->
+  <link href="{{url_for('static',filename='lib/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
+  <link href="{{url_for('static',filename='lib/owlcarousel/owl.carousel.min.css')}}" rel="stylesheet">
+  <link href="{{url_for('static',filename='lib/owlcarousel/owl.theme.min.css')}}" rel="stylesheet">
+  <link href="{{url_for('static',filename='lib/owlcarousel/owl.transitions.min.css')}}" rel="stylesheet">
+
+  <!-- Main Stylesheet File -->
+  <link href="{{url_for('static',filename='css/style.css')}}" rel="stylesheet">
+
+  <!--Your custom colour override - predefined colours are: colour-blue.css, colour-green.css, colour-lavander.css, orange is default-->
+  <link href="#" id="colour-scheme" rel="stylesheet">
+
+  <!-- =======================================================
+    Theme Name: Flexor
+    Theme URL: https://bootstrapmade.com/flexor-free-multipurpose-bootstrap-template/
+    Author: BootstrapMade.com
+    Author URL: https://bootstrapmade.com
+  ======================================================= -->
 </head>
-   <body>
+<body class="page-index has-hero">
+  <!--Change the background class to alter background image, options are: benches, boots, buildings, city, metro -->
+  <div id="background-wrapper" class="buildings" data-stellar-background-ratio="0.1">
+
+    <!-- ======== @Region: #navigation ======== -->
+    <div id="navigation" class="wrapper">
+
+              <!--@todo: replace with company contact details-->
+              <h3 style="color:white">
+                ¡Contactanos!
+                </h3>
+              <address>
+                  <strong style="color:white">Casa de Nómadas</strong>
+                  <abbr style="color:white" title="Address"><i class="fa fa-pushpin">Gumersindo Sosa 1461, barrio Ycua Sati. Asunción - Paraguay</i></i></abbr>
+                  
+                  <br>
+                  <abbr style="color:white" title="Phone"> <i class="fa fa-phone">+595 983 361 232</i></i></abbr>
+                  
+                  <br>
+                  <abbr  title="Email"><i class="fa fa-envelope-alt" style="color:white;"> vale.alcaraz14@gmail.com</i></i></abbr>
+                  
+                </address>
+            </div>
+
+           
+            </div>
+          </div>
+        </div>
+      </div>
+
          <div class="container-fluid">
                <div class="header">
                  <nav>
-                   <ul class="nav nav-pills pull-right">
-                     <li role="presentation" class="active"><a href="/">Inicio</a></li>
-                     <li role="presentation"><a href="/formulario">Formulario</a></li>
-                
+                   <ul class="nav nav-pills pull-right col-sm-1">
+                     <li role="presentation" class="btn btn-sm btn-primary btn-block col-sm-2"><a href="/">Inicio</a></li>
+                     <li role="presentation"class="btn btn-sm btn-primary btn-block col-sm-2"><a href="/formulario">Regístrate</a></li>
+                <center>
                    </ul>
                  </nav>
-                 <h3 class="text-muted">Consulta de servicios</h3>
+                 <h3 class="colour orange active"style="color:orangered"> Lista de Servicios</h3>
                </div>
+               </center>
                
-               <div class="jumbotron" >
-                     <h1>Servicios</h1>
+               <center>
+               <div  class="colour orange active">
+                     <h1 style="color:orangered; font-weight: 500">Servicios</h1>
                      <p class="lead"></p>
-               </div>
-      <table border = 2>
-         <thead>
-            <td align="center"><strong>Servicio</strong></td>
-            <td align="center"> <strong>Descripcion_del_producto</strong></td>
-            <td align="center"><strong>Horas_por_semana</strong></td>
-            <td align="center"><strong>Precio_por_hora</strong></td>
-            <td align="center"><strong>Contacto</strong></td>
-            <td align="center"><strong>Correo </strong></td>
-         </thead>
-         
-         {% for row in rows %}
-            <tr>
-               <td align="center">{{row["Servicio"]}}</td>
-               <td align="center">{{row["Descripcion_del_producto"]}}</td>
-               <td align="center">{{row["Horas_por_semana"]}}</td>
-               <td align="center"> {{ row["Precio_por_hora"]}}</td>
-               <td align="center">{{row['Contacto']}}</td>	
-               <td align="center"> {{ row["Correo"]}}</td>
-            </tr>
-         {% endfor %}
-      </table>
-      <button class="btn btn-lg btn-success">
+                
+                </div>
+               </center>
+      <center>  
+          <table class="table">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">Servicios</th>
+                  <th scope="col">Descripcion</th>
+                  <th scope="col">Disponibilidad</th>
+                  <th scope="col">Precio/hora</th>
+                  <th scope="col">Telefono</th>
+                  <th scope="col">Precio</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for row in rows %}
+                <tr>
+                  <th scope="row">{{ row["Servicio"] }}</th>
+                  <td>{{ row["Descripcion_del_Producto"]}}</td>
+                  <td>{{ row["Horas_por_semana"]}}</td>
+                  <td>{{row["Precio_por_hora"]}}</td>
+                  <td>{{row["Contacto"]}}</td>
+                </tr>
+      
+              </tbody>
+              {% endfor %}
+            </table>
+            
+            
+        </center> 
+        <div class="col-sm-4 col-sm-offset-4"><br>
+
+      <button class="btn btn-lg btn-primary btn-block" type="submit">
        
-         <a href = "/formulario">Regresar para registar otro servicio</a>
+         <a href = "/formulario" style="color:white;">Regresar para registar otro servicio</a>
       
       </button>
-       <br>
-       <br>
-      <button class="btn btn-lg btn-success">
-            <a href = "/">Regresar a la página principal</a>
-      </button>
+      <br>
+     
+     <button class="btn btn-lg btn-primary btn-block">
+           <a href = "/" style="color:white;">Regresar a la página principal</a><br>
+     </button>      
+      </div>
+
       
    </body>
 </html>

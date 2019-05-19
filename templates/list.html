@@ -55,7 +55,7 @@
 </head>
 <body class="page-index has-hero">
   <!--Change the background class to alter background image, options are: benches, boots, buildings, city, metro -->
-  <div id="background-wrapper" class=" " data-stellar-background-ratio="0.1">
+  <div id="background-wrapper" class="buildings" data-stellar-background-ratio="0.1">
 
     <!-- ======== @Region: #navigation ======== -->
     <div id="navigation" class="wrapper">
@@ -66,14 +66,14 @@
                 </h3>
               <address>
                   <strong style="color:white">Casa de Nómadas</strong>
-                  <abbr title="Address"><i class="fa fa-pushpin"style="color:white"></i></i></abbr>
-                  Gumersindo Sosa 1461, barrio Ycua Sati. Asunción - Paraguay
+                  <abbr style="color:white" title="Address"><i class="fa fa-pushpin">Gumersindo Sosa 1461, barrio Ycua Sati. Asunción - Paraguay</i></i></abbr>
+                  
                   <br>
-                  <abbr title="Phone"><i class="fa fa-phone"style="color:white"></i></i></abbr>
-                  +595 983 361 232
+                  <abbr style="color:white" title="Phone"> <i class="fa fa-phone">+595 983 361 232</i></i></abbr>
+                  
                   <br>
-                  <abbr title="Email"><i class="fa fa-envelope-alt"style="color:white"></i></i></abbr>
-                  vale.alcaraz14@gmail.com
+                  <abbr  title="Email"><i class="fa fa-envelope-alt" style="color:white;"> vale.alcaraz14@gmail.com</i></i></abbr>
+                  
                 </address>
             </div>
 
@@ -104,28 +104,32 @@
                 </div>
                </center>
       <center>  
-      <table border = 2>
-         <thead>
-            <td align="center"><strong>Servicio</strong></td>
-            <td align="center"> <strong>Descripción</strong></td>
-            <td align="center"><strong>Disponibilidad</strong></td>
-            <td align="center"><strong>Precio/hora</strong></td>
-            <td align="center"><strong>Teléfono</strong></td>
-            <td align="center"><strong>Correo </strong></td>
-         </thead>
-         
-         {% for row in rows %}
-            <tr>
-               <td align="center">{{row["Servicio"]}}</td>
-               <td align="center">{{row["Descripcion_del_producto"]}}</td>
-               <td align="center">{{row["Horas_por_semana"]}}</td>
-               <td align="center"> {{ row["Precio_por_hora"]}}</td>
-               <td align="center">{{row['Contacto']}}</td>	
-               <td align="center"> {{ row["Correo"]}}</td>
-            </tr>
-         {% endfor %}
-      </table>
+          <table class="table">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">Servicios</th>
+                  <th scope="col">Descripcion</th>
+                  <th scope="col">Disponibilidad</th>
+                  <th scope="col">Precio/hora</th>
+                  <th scope="col">Telefono</th>
+                  <th scope="col">Precio</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for row in rows %}
+                <tr>
+                  <th scope="row">{{ row["Servicio"] }}</th>
+                  <td>{{ row["Descripcion_del_Producto"]}}</td>
+                  <td>{{ row["Horas_por_semana"]}}</td>
+                  <td>{{row["Precio_por_hora"]}}</td>
+                  <td>{{row["Contacto"]}}</td>
+                </tr>
       
+              </tbody>
+              {% endfor %}
+            </table>
+            
+            
         </center> 
         <div class="col-sm-4 col-sm-offset-4"><br>
 

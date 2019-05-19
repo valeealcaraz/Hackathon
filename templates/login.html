@@ -65,14 +65,6 @@
     <div id="content">
       <div class="header">
         <div class="header-inner">
-          <!--navbar-branding/logo - hidden image tag & site name so things like Facebook to pick up, actual logo set via CSS for flexibility -->
-          <a class="navbar-brand center-block" href="index.html" title="Home">
-            <h1 class="hidden">
-                <img src="img/logo.png" alt="Flexor Logo">
-                Flexor
-              </h1>
-          </a>
-        </div>
       </div>
       <div class="row">
         <div class="col-sm-6 col-sm-offset-3">
@@ -88,13 +80,13 @@
                   <div class="form-group">
                     <div class="input-group input-group-lg">
                       <span class="input-group-addon"><i class="fa fa-fw fa-envelope"></i></span>
-                      <input type="text" class="form-control" placeholder="Email">
+                      <input type="text" name="email" class="form-control" placeholder="Email">
                     </div>
                   </div>
                   <div class="form-group">
                     <div class="input-group input-group-lg">
                       <span class="input-group-addon"><i class="fa fa-fw fa-lock"></i></span>
-                      <input type="password" class="form-control" placeholder="Contraseña">
+                      <input type="password" name="pass" class="form-control" placeholder="Contraseña">
                     </div>
                   </div>
                   <div class="checkbox">
@@ -103,10 +95,10 @@
                         Recordarme
                       </label>
                   </div>
-                  <input class="btn btn-lg btn-primary btn-block" type="submit" value="Login">
+                  <input class="btn btn-lg btn-primary btn-block" type="submit" value="Login" href="/" role="button">
                 </fieldset>
               </form>
-              <p class="m-b-0 m-t">¿Aún no estás registrado? <a href="register.html">Registrate acá</a>.</p>
+              <p class="m-b-0 m-t"> ¿Aún no estás registrado? <a href="/register" style=color:black>  Registrate acá</a>.</p>
               <div class="credits">
             <!--
               All the links in the footer should remain intact.
@@ -114,7 +106,6 @@
               Licensing information: https://bootstrapmade.com/license/
               Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Flexor
             -->
-            Diseñado por<a href="https://bootstrapmade.com/">AAFVV</a>
           </div>
             </div>
           </div>

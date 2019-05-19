@@ -37,7 +37,7 @@ def ingresar():
 
 @app.route('/showlogin',methods=['POST','GET'])
 def showlogin():
-    return render_template('loginreal.html')
+    return render_template('login.html')
 
 @app.route('/formulario')
 def formulario():
@@ -227,5 +227,4 @@ def consulta_username():
 
 if __name__ == "__main__":
     app.run(debug=True)
-
 

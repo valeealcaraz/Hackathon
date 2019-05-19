@@ -10,8 +10,6 @@ ciertos campos a rellenar para tener el historial de los servicios, faltan mucha
 pero lo basico ya tiene. 
 """
 
-"""
-
 
 from flask import Flask, render_template, json, request
 import sqlite3 as sql 
@@ -150,11 +148,7 @@ def lista():
                                         Precio_por_hora integer NOT NULL,
                                         Contacto number,
                                         Correo text
-<<<<<<< HEAD
                                     );"""
-=======
-                                    ); """
->>>>>>> a47ccb6e44f6afe822e71a773e61da2f829f7179
                        )
            js={
              'Servicio': " ",  

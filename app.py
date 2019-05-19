@@ -1,3 +1,4 @@
+
 #_*_ coding:utf-8 _*_
     
 
@@ -10,9 +11,9 @@ fecha de ultima edicion: 14 de mayo del 2019
 descripcion: Es un sistema de inscripcion para servicios tiene
 ciertos campos a rellenar para tener el historial de los servicios, faltan muchas funcionalidades
 pero lo basico ya tiene. 
-
-
 """
+
+
 
 
 from flask import Flask, render_template, json, request
@@ -24,11 +25,15 @@ nombre_db="base_datos3.db"   #nombre de la base de datos
 
 @app.route('/')
 def main():
+    print("adfdsdf")
     return render_template('index.html')
+
 
 @app.route('/showHome')
 def showHome():
-    return render_template('index.html') 
+    return render_template('index.html')  
+
+
 
 @app.route('/ingresar',methods=['POST','GET'])
 def ingresar():
@@ -58,14 +63,14 @@ def registro():
             with sql.connect(nombre_db) as con:
                     
                 cur = con.cursor()
-                cur.execute('''CREATE TABLE IF NOT EXISTS servicios (
+                cur.execute("""CREATE TABLE IF NOT EXISTS servicios (
                                         Servicio text,
                                         Descripcion_del_producto text,                                        
                                         Horas_por_semana integer NOT NULL,
                                         Precio_por_hora integer NOT NULL,
                                         Contacto number,
                                         Correo text
-                                    );'''
+                                    );"""
                        )
                 cur.execute('''INSERT INTO servicios (Servicio,Descripcion_del_producto,Horas_por_semana,Precio_por_hora,Contacto,Correo) VALUES (?,?,?,?,?,?);''', datos )
             
@@ -81,7 +86,7 @@ def registro():
             return render_template('registro.html',dato=js)
             
 
-@app.route('/register',methods=['POST','GET'])
+@app.route('/register')
 def register():
     return render_template('register.html')
 
@@ -144,14 +149,14 @@ def lista():
    except:            #si tiene problemas puede ser porque no existe la base de datos
        with sql.connect(nombre_db) as con:        
            cur = con.cursor()
-           cur.execute('''CREATE TABLE IF NOT EXISTS servicios (
+           cur.execute("""CREATE TABLE IF NOT EXISTS servicios (
                                         Servicio text,
                                         Descripcion_del_producto text,                                        
                                         Horas_por_semana integer NOT NULL,
                                         Precio_por_hora integer NOT NULL,
                                         Contacto number,
                                         Correo text
-                                    );'''
+                                    ); """
                        )
            js={
              'Servicio': " ",  
@@ -160,11 +165,7 @@ def lista():
             }
        return js
 
-if __name__ == "__main__":
-    app.run(debug=True)
-
-
-@app.route('/register', methods=['POST','GET'])      # aca es para registrar al usuario
+@app.route('/registro_usuario', methods=['POST','GET'])      # aca es para registrar al usuario
 def registro_usuario():
     if request.method=='POST':   
         try:
@@ -174,21 +175,21 @@ def registro_usuario():
             Contrasenha=request.form['Contrasenha'] #Descripción de hobbies
             Numero_de_telefono=request.form['Telefono'] #contacto
             Correo=request.form['Correo']  
+            print("hgfggf")
             datos=[Nombre_usuario,Apellido_usuario,Nacimiento,Contrasenha,Numero_de_telefono,Correo]  # esto es para meter en la db luego
             print(datos)
             with sql.connect(nombre_db) as con:
-                    
                 cur = con.cursor()
                 cur.execute('''CREATE TABLE IF NOT EXISTS registro (
                                         Nombre_usuario text,
                                         Apellido_usuario text,                                        
                                         Nacimiento integer NOT NULL,
-                                        Hobby text,
+                                        Contrasenha text,
                                         Numero_de_telefono integer NOT NULL,
                                         Correo text
                                     );'''
                        )
-                cur.execute('''INSERT INTO registro (Nombre_usuario,Apellido_usuario,Nacimiento,Hobby,Numero_de_telefono,Correo) VALUES (?,?,?,?,?,?);''', datos )
+                cur.execute("""INSERT INTO registro (Nombre_usuario,Apellido_usuario,Nacimiento,Contrasenha,Numero_de_telefono,Correo) VALUES (?,?,?,?,?,?);""", datos )
             
                 con.commit()   
              
@@ -206,7 +207,7 @@ def consulta_usuario():
    return render_template("consulta.html")
 
 @app.route('/consulta_username',methods=['POST','GET']) #esto es para la consulta por un animal (individual)
-def consulta_id():
+def consulta_username():
     columna=[]                                   #creo una lista vacía
     if request.method=='POST':                   
         variable=request.form['inputName']      #guardamos para luego buscar en la base de datos
@@ -214,11 +215,18 @@ def consulta_id():
         con.row_factory = sql.Row               #confirmamos para que los datos que se consulte estén en fila
     
         cur = con.cursor()
-        cur.execute("select * from login")   #hacemos la consulta y seleccionamos TODOS los datos de la base de dato
+        cur.execute("select * from registro")   #hacemos la consulta y seleccionamos TODOS los datos de la base de dato
     
         rows = cur.fetchall()                
         for i in rows:                   #recorremos la lista dentro de otra lista que está en rows
-            if variable==str(i["login"]):   #si coincide con la consulta, agregamos lo que se consulto 
+            if variable==str(i["Nombre_usuario"]):   #si coincide con la consulta, agregamos lo que se consulto 
                 columna.append(i)        #con append agregamos lo que se consultó en la base de datos, solo cuando coincide lo que se le metio en la consulta desde el html 
         
         return render_template("consulta_username.html",Identificativo=variable,columna=columna)
+
+
+
+
+if __name__ == "__main__":
+    app.run(debug=True)
+

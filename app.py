@@ -25,20 +25,10 @@ def main():
     print("adfdsdf")
     return render_template('index.html')
 
-<<<<<<< HEAD
 @app.route('/showHome')
 def showHome():
     return render_template('index.html') 
 
-=======
-
-@app.route('/showHome')
-def showHome():
-    return render_template('index.html')  
-
-
-
->>>>>>> a47ccb6e44f6afe822e71a773e61da2f829f7179
 @app.route('/ingresar',methods=['POST','GET'])
 def ingresar():
     return render_template('ingresar.html')

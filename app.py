@@ -1,17 +1,14 @@
-
-"""#_*_ coding:utf-8 _*_
+#_*_ coding:utf-8 _*_
     
 
-
-
-
+"""
 integrantes: Vale, fede, ale ,adolfo, vero
 fecha: 10-2-2019
 fecha de ultima edicion: 14 de mayo del 2019
 descripcion: Es un sistema de inscripcion para servicios tiene
 ciertos campos a rellenar para tener el historial de los servicios, faltan muchas funcionalidades
 pero lo basico ya tiene. 
-
+"""
 
 """
 
@@ -28,10 +25,20 @@ def main():
     print("adfdsdf")
     return render_template('index.html')
 
+<<<<<<< HEAD
 @app.route('/showHome')
 def showHome():
     return render_template('index.html') 
 
+=======
+
+@app.route('/showHome')
+def showHome():
+    return render_template('index.html')  
+
+
+
+>>>>>>> a47ccb6e44f6afe822e71a773e61da2f829f7179
 @app.route('/ingresar',methods=['POST','GET'])
 def ingresar():
     return render_template('ingresar.html')
@@ -60,14 +67,14 @@ def registro():
             with sql.connect(nombre_db) as con:
                     
                 cur = con.cursor()
-                cur.execute('''CREATE TABLE IF NOT EXISTS servicios (
+                cur.execute("""CREATE TABLE IF NOT EXISTS servicios (
                                         Servicio text,
                                         Descripcion_del_producto text,                                        
                                         Horas_por_semana integer NOT NULL,
                                         Precio_por_hora integer NOT NULL,
                                         Contacto number,
                                         Correo text
-                                    );'''
+                                    );"""
                        )
                 cur.execute('''INSERT INTO servicios (Servicio,Descripcion_del_producto,Horas_por_semana,Precio_por_hora,Contacto,Correo) VALUES (?,?,?,?,?,?);''', datos )
             
@@ -153,7 +160,11 @@ def lista():
                                         Precio_por_hora integer NOT NULL,
                                         Contacto number,
                                         Correo text
+<<<<<<< HEAD
                                     );"""
+=======
+                                    ); """
+>>>>>>> a47ccb6e44f6afe822e71a773e61da2f829f7179
                        )
            js={
              'Servicio': " ",  
@@ -186,7 +197,7 @@ def registro_usuario():
                                         Correo text
                                     );'''
                        )
-                cur.execute('''INSERT INTO registro (Nombre_usuario,Apellido_usuario,Nacimiento,Contrasenha,Numero_de_telefono,Correo) VALUES (?,?,?,?,?,?);''', datos )
+                cur.execute("""INSERT INTO registro (Nombre_usuario,Apellido_usuario,Nacimiento,Contrasenha,Numero_de_telefono,Correo) VALUES (?,?,?,?,?,?);""", datos )
             
                 con.commit()   
              
@@ -226,4 +237,5 @@ def consulta_username():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
 

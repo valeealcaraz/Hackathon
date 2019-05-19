@@ -1,93 +1,93 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <meta charset="utf-8">
-    <title>Venta hobbies</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
-
-      <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900" rel="stylesheet">
-
-    <!-- Bootstrap CSS File -->
-    <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Libraries CSS Files -->
-    <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <link href="lib/owlcarousel/owl.carousel.min.css" rel="stylesheet">
-    <link href="lib/owlcarousel/owl.theme.min.css" rel="stylesheet">
-    <link href="lib/owlcarousel/owl.transitions.min.css" rel="stylesheet">
-
-    <!-- Main Stylesheet File -->
-    <link href="css/style.css" rel="stylesheet">
-
-    <!--Your custom colour override - predefined colours are: colour-blue.css, colour-green.css, colour-lavander.css, orange is default-->
-    <link href="#" id="colour-scheme" rel="stylesheet">
-
-
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
+        <meta charset="utf-8">
+        <title>Venta de Hobbies</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="" name="keywords">
+        <meta content="" name="description">
+      
+        <!-- Facebook Opengraph integration: https://developers.facebook.com/docs/sharing/opengraph -->
+        <meta property="og:title" content="">
+        <meta property="og:image" content="">
+        <meta property="og:url" content="">
+        <meta property="og:site_name" content="">
+        <meta property="og:description" content="">
+      
+        <!-- Twitter Cards integration: https://dev.twitter.com/cards/  -->
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:site" content="">
+        <meta name="twitter:title" content="">
+        <meta name="twitter:description" content="">
+        <meta name="twitter:image" content="">
+      
+        <!-- Fav and touch icons -->
+        <link rel="shortcut icon" href="img/icons/favicon.png">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/icons/114x114.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/icons/72x72.png">
+        <link rel="apple-touch-icon-precomposed" href="img/icons/default.png">
+      
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900" rel="stylesheet">
+      
+        <!-- Bootstrap CSS File -->
+        <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+      
+        <!-- Libraries CSS Files -->
+        <link href="{{url_for('static',filename='lib/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
+        <link href="{{url_for('static',filename='lib/owlcarousel/owl.carousel.min.css')}}" rel="stylesheet">
+        <link href="{{url_for('static',filename='lib/owlcarousel/owl.theme.min.css')}}" rel="stylesheet">
+        <link href="{{url_for('static',filename='lib/owlcarousel/owl.transitions.min.css')}}" rel="stylesheet">
+      
+        <!-- Main Stylesheet File -->
+        <link href="{{url_for('static',filename='css/style.css')}}" rel="stylesheet">
+      
+        <!--Your custom colour override - predefined colours are: colour-blue.css, colour-green.css, colour-lavander.css, orange is default-->
+        <link href="#" id="colour-scheme" rel="stylesheet">
+      
+        <!-- =======================================================
+          Theme Name: Flexor
+          Theme URL: https://bootstrapmade.com/flexor-free-multipurpose-bootstrap-template/
+          Author: BootstrapMade.com
+          Author URL: https://bootstrapmade.com
+        ======================================================= -->
   </head>
 
   <body>
-
-    <div class="col-md-4">
-      <ul class="list-inline user-menu pull-right">
-        <li class="user-button"><a class="btn btn-primary btn-hh-trigger" role="button" data-toggle="collapse" data-target=".header-hidden">Open</a></li>
-      </ul>
-      <ul class="list-inline user-menu pull-right">
-        <li class="user-register"><i class="fa fa-edit text-primary "></i> <a href="register" class="text-uppercase">Inicio</a></li>
-        <li class="user-login"><i class="fa fa-sign-in text-primary"></i> <a href="login.html" class="text-uppercase">Registrate</a></li>
-        <li class="user-register"><i class="fa fa-edit text-primary "></i> <a href="register" class="text-uppercase">Formulario</a></li>
-        <li class="user-login"><i class="fa fa-sign-in text-primary"></i> <a href="login.html" class="text-uppercase">Lista</a></li>
-        <li class="user-register"><i class="fa fa-edit text-primary "></i> <a href="register" class="text-uppercase">Entrar</a></li>
-      </ul>
+        <body class="fullscreen-centered page-register">
+ <div id="background-wrapper" class="city" data-stellar-background-ratio="0.8" style="background-position: 0% 0%;">
+    <div class="container-fluid">
       <div class="header">
         <nav>
           <ul class="nav nav-pills pull-right">
-            <li role="presentation" class="active"><a href="/">Inicio</a></li>
+            <li role="presentation" ><a href="/">Inicio</a></li>
             <li role="presentation"><a href="/showlogin">Registrarse</a></li>
             <li role="presentation"><a href="/formulario">Formulario</a></li>
             <li role="presentation"><a href="/list">Lista</a></li>
- 	          <li role="presentation"><a href="/showlogin">Entrar</a></li>
+ 	        <li role="presentation"><a href="/showlogin">Entrar</a></li>
           </ul>
         </nav>
-      <div class="row">
-        <div class="col-sm-6 col-sm-offset-3">
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h3 class="panel-title">
-                Iniciar sesión 
-              </h3>
-            </div>      
-        <h3 class="text-muted">Consulta de servicio</h3>
-      </div>
+        
+    <div class="row">
+     <div class="col-sm-10 col-sm-offset-1">
+        <div class="panel-heading" style="color:#f4511e;">
+              <h2>
+                  Consulta de servicios
+              </h2>           
+        </div>      
 
-      <div class="jumbotron" >
-        <h1>Hobbies</h1>
-        <p class="lead"></p>
-      </div>
-     
       <div>
-              <form action = "{{ url_for('consulta_servicio') }}" method = "POST">
-                <input type="name" name="inputName" id="inputName" class="form-control" placeholder="Servicio a consultar" required autofocus>
-                <input type = "submit" value = "Consultar" class="btn btn-lg btn-primary btn-block"/><br>
+        <form action = "{{ url_for('consulta_servicio') }}" method = "POST">
+            <input type="name" name="inputName" id="inputName" class="form-control" placeholder="Servicio a consultar" required autofocus>
+            <input type = "submit" value = "Consultar" class="btn btn-lg btn-primary btn-block"/><br>
               </form>
        </div>
 
-              <h1 class="container-fluid">Resultado de la consulta de la base de datos </h1>
-              <table border = 4>
+       <h3 class="container-fluid" style="color:whitesmoke">Resultado de la consulta - base de datos </h3>
+       <table border = 4 class="table table-bordered" style="color:whitesmoke">
                   <thead>
                     <td align="center">Servicio</td>
-                    <td align="center">Descripcion del producto</td>
+                    <td align="center">Descripción del producto</td>
                     <td align="center">Horas por semana</td>
                     <td align="center">Precio por hora</td>
                     <td align="center">Contacto</td>
@@ -97,7 +97,7 @@
                   <tr>
                     
                     <td align="center">{{row["Servicio"]}}</td>
-                    <td align="center">{{row["Descripcion_del_producto"]}}</td>
+                    <td align="center">{{row["Descripción_del_producto"]}}</td>
                     <td align="center">{{row["Horas_por_semana"]}}</td>
                     <td align="center"> {{row["Precio_por_hora"]}}</td>
                     <td align="center">{{row['Contacto']}}</td>	
@@ -106,10 +106,14 @@
                 </tr>
               
             {% endfor %}
-      <footer class="footer">
-        <p>&copy; Alejandro Mendez 2019</p>
-      </footer>
-
+        </div>
     </div>
-  </body>
+ </div>
+      <footer class="footer">
+            <p></p>
+        </footer>
+        
+    </div>
+</div>
+</body>
 </html>

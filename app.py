@@ -1,4 +1,3 @@
-
 #_*_ coding:utf-8 _*_
     
 
@@ -229,4 +228,5 @@ def consulta_username():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
 

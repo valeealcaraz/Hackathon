@@ -37,7 +37,7 @@ def ingresar():
 
 @app.route('/showlogin',methods=['POST','GET'])
 def showlogin():
-    return render_template('login.html')
+    return render_template('loginreal.html')
 
 @app.route('/formulario')
 def formulario():
@@ -85,6 +85,8 @@ def registro():
 @app.route('/register')
 def register():
     return render_template('register.html')
+
+
 
 @app.route('/list')
 def list():

@@ -10,7 +10,6 @@ ciertos campos a rellenar para tener el historial de los servicios, faltan mucha
 pero lo basico ya tiene. 
 """
 
-"""
 
 
 from flask import Flask, render_template, json, request
@@ -25,12 +24,6 @@ def main():
     print("adfdsdf")
     return render_template('index.html')
 
-<<<<<<< HEAD
-@app.route('/showHome')
-def showHome():
-    return render_template('index.html') 
-
-=======
 
 @app.route('/showHome')
 def showHome():
@@ -38,7 +31,6 @@ def showHome():
 
 
 
->>>>>>> a47ccb6e44f6afe822e71a773e61da2f829f7179
 @app.route('/ingresar',methods=['POST','GET'])
 def ingresar():
     return render_template('ingresar.html')
@@ -160,11 +152,7 @@ def lista():
                                         Precio_por_hora integer NOT NULL,
                                         Contacto number,
                                         Correo text
-<<<<<<< HEAD
-                                    );"""
-=======
                                     ); """
->>>>>>> a47ccb6e44f6afe822e71a773e61da2f829f7179
                        )
            js={
              'Servicio': " ",  

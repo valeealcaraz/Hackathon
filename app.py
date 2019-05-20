@@ -106,7 +106,6 @@ def lista_usuarios():
    con.row_factory = sql.Row
    cur = con.cursor()
    cur.execute("select * from registro")  #seleccionamos todos los datos de la tabla animales
-  
    
    rows = cur.fetchall()
    print(rows)

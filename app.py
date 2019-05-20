@@ -25,25 +25,21 @@ def main():
     return render_template('index.html')
 
 
-@app.route('/showHome')
+@app.route('/showHome') #lo mismo que /
 def showHome():
     return render_template('index.html')  
 
 
-@app.route('/ingresar',methods=['POST','GET'])
-def ingresar():
-    return render_template('ingresar.html')
-
-@app.route('/showlogin',methods=['POST','GET'])
+@app.route('/showlogin',methods=['POST','GET']) #ruta que te retorna el html login (logearse pero no funciona)
 def showlogin():
     return render_template('login.html')
 
-@app.route('/formulario')
+@app.route('/formulario') #esta ruta te lleva al formulario para el servicio
 def formulario():
     js=lista_servicios()    #llamamos a la funcion para retornar del lado del cliente datos par el formulario
     return render_template('registro.html',dato=js)
 
-@app.route('/registro', methods=['POST','GET'])      # aca es para registrar al animal
+@app.route('/registro', methods=['POST','GET'])      # aca es para registrar al servicio nuevo
 def registro():
     if request.method=='POST':   
         try:
@@ -139,11 +135,11 @@ def consulta_servicio():
 def registro_usuario():
     if request.method=='POST':   
         try:
-            Usuario=request.form['Username']                         #nombre de usuario
-            Nombre_usuario=request.form['Nombre']             #descripcion del servicio 
-            Apellido_usuario=request.form['Apellido']
+            Usuario=request.form['Username']                         #usuario
+            Nombre_usuario=request.form['Nombre']             #Nombre del usuario
+            Apellido_usuario=request.form['Apellido']        #NApellido del usuario
             Nacimiento=request.form['Fecha_de_Nacimiento']  #input para fecha de nacimiento
-            Contrasenha=request.form['Contrasenha'] #Descripción de hobbies
+            Contrasenha=request.form['Contrasenha'] #Contrasenha
             Numero_de_telefono=request.form['Telefono'] #contacto
             Correo=request.form['Correo']  
             print("hgfggf")
@@ -190,11 +186,13 @@ def consulta_username():
         cur = con.cursor()
         cur.execute("select * from registro")   #hacemos la consulta y seleccionamos TODOS los datos de la base de dato
     
-        rows = cur.fetchall()                
+        rows = cur.fetchall()
+        print(int(len(columna)))               
         for i in rows:                   #recorremos la lista dentro de otra lista que está en rows
-            if variable==str(i["Nombre_usuario"]):   #si coincide con la consulta, agregamos lo que se consulto 
+            if variable==str(i["Usuario"]):   #si coincide con la consulta, agregamos lo que se consulto 
                 columna.append(i)        #con append agregamos lo que se consultó en la base de datos, solo cuando coincide lo que se le metio en la consulta desde el html 
-        
+            elif variable==str(i["Nombre_usuario"]):   #si coincide con la consulta, agregamos lo que se consulto 
+                columna.append(i)        #con append agregamos lo que se consultó en la base de datos, solo cuando coincide lo que se le metio en la consulta desde el html
         return render_template("consulta_username.html",Identificativo=variable,columna=columna)
 
 
@@ -202,5 +200,4 @@ def consulta_username():
 
 if __name__ == "__main__":
     app.run(debug=True)
-
 

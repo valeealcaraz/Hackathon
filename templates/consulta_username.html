@@ -87,20 +87,20 @@
         <h3 class="container-fluid" style="color:whitesmoke">Resultado de la consulta - base de datos </h3>
         <table border = 4 class="table table-bordered" style="color:whitesmoke">
             <thead>
-              <td align="center">Username</td>
+              <td align="center">Usuario</td>
+              <td align="center">Nombre</td>
               <td align="center">Apellido</td>
               <td align="center">Fecha de nacimiento</td>
-              <td align="center">Contraseña</td>
               <td align="center">Teléfono</td>
               <td align="center">Correo</td>
             </thead>
             {% for row in columna %}       
             <tr>
               
+              <td align="center">{{row["Usuario"]}}</td>
               <td align="center">{{row["Nombre_usuario"]}}</td>
               <td align="center">{{row["Apellido_usuario"]}}</td>
               <td align="center">{{row["Nacimiento"]}}</td>
-              <td align="center"> {{row["Contraseña"]}}</td>
               <td align="center">{{row['Numero_de_telefono']}}</td>	
               <td align="center"> {{ row["Correo"]}}</td>
             

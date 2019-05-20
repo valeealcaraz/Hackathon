@@ -125,7 +125,7 @@
                   </h1>
               </a>
               <div class="navbar-slogan">
-                Atrévete a trabajar con lo que amas 
+                Atrévete a trabajar en lo que amas 
               </div>
             </div>
             <!--header rightside-->
@@ -158,7 +158,7 @@
           <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav" id="main-menu">
               <li class="icon-link">
-                <a href="index.html"><i class="fa fa-home"></i></a>
+                <a href="#"><i class="fa fa-home"></i></a>
               </li>
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Página<b class="caret"></b></a>
@@ -172,37 +172,7 @@
                   <li class="dropdown-footer">Dropdown footer</li>
                 </ul>
               </li>
-              <li><a href="#">Menu Link</a></li>
-              <li class="dropdown dropdown-mm">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Mega Menu<b class="caret"></b></a>
-                <!-- Dropdown Menu -->
-                <ul class="dropdown-menu dropdown-menu-mm dropdown-menu-persist">
-                  <li class="row">
-                    <ul class="col-md-6">
-                      <li class="dropdown-header">Websites and Apps</li>
-                      <li><a href="#">elemento1</a></li>
-                      <li><a href="#">elemento2</a></li>
-                      <li><a href="#">elemento3</a></li>
-                      <li><a href="#">elemento4</a></li>
-                    </ul>
-                    <ul class="col-md-6">
-                      <li class="dropdown-header">Enterprise solutions</li>
-                      <li><a href="#">elemento5</a></li>
-                      <li><a href="#">elemento6</a></li>
-                      <li><a href="#">elemento7</a></li>
-                    </ul>
-                  </li>
-                  <li class="dropdown-footer">
-                    <div class="row">
-                      <div class="col-md-7">Like the lite version? <strong>Get the extended version of Flexor.</strong></div>
-                      <div class="col-md-5">
-                        <a href="https://bootstrapmade.com" class="btn btn-more btn-lg pull-right"><i class="fa fa-cloud-download"></i> Get It Now</a>
-                      </div>
-                    </div>
-                  </li>
-                </ul>
-              </li>
-            </ul>
+            </li>
           </div>
           <!--/.navbar-collapse -->
         </div>
@@ -217,7 +187,8 @@
             <!--Slide 1-->
             <div class="item">
               <div class="row">
-                <div class="col-md-6 col-md-push-6 item-caption">
+                <div class="col-md-5 col-md-push-5 item-caption">
+                  <div class="col-md-12">
                   <h2 class="h1 text-weight-light">
                       Bienvenido a <span class="text-primary">Uber for Hobbies</span>
                     </h2>
@@ -230,15 +201,10 @@
                       <input type="name" name="inputName" id="inputName" class="form-control" placeholder="Servicio" required autofocus>
                       <input type = "submit" value = "Consultar" class="btn btn-lg btn-primary btn-block"type="submit"/><br>
                     </form>
+                  </div>
             </div>
-            <div>
-              <form action = "{{ url_for('consulta_username') }}" method = "POST">
-                <input type="name" name="inputName" id="inputName" class="form-control" placeholder="Usuario" required autofocus>
-                <input type = "submit" value = "Consultar" class="btn btn-lg btn-primary btn-block"/><br>
-              </form>
-      </div>
                 </div>
-                <div class="col-md-6 col-md-pull-6 hidden-xs">
+                <div class="col-md-5 col-md-pull-5 hidden-xs">
                   <img src="img/slides/M1.jpg" alt="Slide 1" class="center-block img-responsive">
                 </div>
               </div>
@@ -246,7 +212,9 @@
             <!--Slide 2-->
             <div class="item">
               <div class="row">
-                <div class="col-md-6 text-right-md item-caption">
+                <div class="col-md-5 text-right-md item-caption">
+                    <div class="col-md-12">
+
                   <h2 class="h1 text-weight-light">
                       <span class="text-primary">Hobbies</span> para los que desean aprender
                     </h2>
@@ -254,8 +222,15 @@
                       Aprende de otros las habilidades que deseas desarrollar personalmente
                     </h4>
                   <p>  Con tu perfil, accederas a la interaccion con los expertos en el hobbie para desarrollar tus habilidades. Te brindamos facilidades encontrando un compañero/ tutor haciendo esta una experiencia mas agradable para tu propio desarrollo </p>
-                  <a href="https://bootstrapmade.com" class="btn btn-more btn-lg"><i class="fa fa-plus"></i> Learn More</a>
-                </div>
+           <div>
+              <form action = "{{ url_for('consulta_username') }}" method = "POST">
+                <input type="name" name="inputName" id="inputName" class="form-control" placeholder="Usuario" required autofocus>
+                <input type = "submit" value = "Consultar" class="btn btn-lg btn-primary btn-block"/><br>
+              </form>
+            </div>
+          </div>
+
+          </div>
                 <div class="col-md-6 hidden-xs">
                   <img src="img/slides/slide2.png" alt="Slide 2" class="center-block img-responsive">
                 </div>
@@ -274,8 +249,7 @@
       <div class="container">
         <h2 class="text-shadow-white">
           Somos la primera plataforma diseñada en Paraguay en la que podrás crecer gracias a tus hobbies sacando partido económico de los mismos o aprendiendo de otros.
-            <a href="about.html" class="btn btn-more"><i class="fa fa-plus"></i>Read more</a>
-          </h2>
+        </h2>
       </div>
     </div>
     <!--Showcase-->
@@ -469,18 +443,18 @@
               <i class="fa fa-circle fa-stack-2x text-primary"></i>
               <i class="fa fa-group fa-stack-1x fa-inverse"></i> </span>
             <h4 class="text-weight-strong">
-              Estas interesado en enseñar?
+              ¿Estás interesado en enseñar?
               </h4>
-            <p>Al registrarte podes elegir ser tutor de las personas interesadas en desarrollar las mismas habilidades que ofreces y asi empezar a expandir tus gustos.</p>
+            <p>Al registrarte podés elegir ser tutor de personas interesadas en desarrollar las mismas habilidades que ofrecés y así generás ingresos.</p>
           </div>
           <div class="col-md-4 text-center">
             <span class="fa-stack fa-5x">
               <i class="fa fa-circle fa-stack-2x text-primary"></i>
               <i class="fa fa-pencil fa-stack-1x fa-inverse"></i> </span>
             <h4 class="text-weight-strong">
-                Querés aprender de los tutores?
+                ¿Querés aprender de los tutores?
               </h4>
-            <p>Al crear una cuenta, buscas los temas que querés aprender y empeza a expandir tus conocimientos sobre el tema que elegiste!</p>
+            <p>¡Al crear una cuenta, buscás los temas que querés aprender y empezás a expandir tus conocimientos sobre el tema que elegiste!</p>
           </div>
           <div class="col-md-4 text-center">
             <span class="fa-stack fa-5x">
@@ -514,10 +488,10 @@ Usage: data-block-bg-img="IMAGE-URL" to apply a background image clearly via jQu
         <!--Customer testimonial-->
         <div class="col-md-6 m-b-lg">
           <h3 class="block-title">
-              Comentario los Creadores
+              Comentario de los Creadores
             </h3>
           <blockquote>
-            <p>Esta plataforma esta dirigida a todas aquellas personas que deseen expandir sus ingresos económicos compartiendo sus hobbies con otros que deseen aprender </p>
+            <p>Esta plataforma está dirigida a todas aquellas personas que deseen incrementar y/o diversificar sus ingresos, compartiendo sus hobbies con otros que deseen aprender </p>
             <img src="img/misc/charles-quote.png" alt="Charles Spencer Chaplin">
             <small>
                 <strong>BootCamp Hobbies 2019</strong>
@@ -577,53 +551,6 @@ Usage: data-block-bg-img="IMAGE-URL" to apply a background image clearly via jQu
       </div>
     </div>
   </div>
-  <!-- /content -->
-  <!-- Call out block -->
-  <div class="block block-pd-sm block-bg-primary">
-    <div class="container">
-      <div class="row">
-        <h3 class="col-md-4">
-            Algunos de nuestros clientes
-          </h3>
-        <div class="col-md-8">
-          <div class="row">
-            <!--Client logos should be within a 120px wide by 60px height image canvas-->
-            <div class="col-xs-6 col-md-2">
-              <a href="https://bootstrapmade.com" title="Client 1">
-                  <img src="img/clients/client1.png" alt="Client 1 logo" class="img-responsive">
-                </a>
-            </div>
-            <div class="col-xs-6 col-md-2">
-              <a href="https://bootstrapmade.com" title="Client 2">
-                  <img src="img/clients/client2.png" alt="Client 2 logo" class="img-responsive">
-                </a>
-            </div>
-            <div class="col-xs-6 col-md-2">
-              <a href="https://bootstrapmade.com" title="Client 3">
-                  <img src="img/clients/client3.png" alt="Client 3 logo" class="img-responsive">
-                </a>
-            </div>
-            <div class="col-xs-6 col-md-2">
-              <a href="https://bootstrapmade.com" title="Client 4">
-                  <img src="img/clients/client4.png" alt="Client 4 logo" class="img-responsive">
-                </a>
-            </div>
-            <div class="col-xs-6 col-md-2">
-              <a href="https://bootstrapmade.com" title="Client 5">
-                  <img src="img/clients/client5.png" alt="Client 5 logo" class="img-responsive">
-                </a>
-            </div>
-            <div class="col-xs-6 col-md-2">
-              <a href="https://bootstrapmade.com" title="Client 6">
-                  <img src="img/clients/client6.png" alt="Client 6 logo" class="img-responsive">
-                </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <!-- ======== @Region: #footer ======== -->
   <footer id="footer" class="block block-bg-grey-dark" data-block-bg-img="img/bg_footer-map.png" data-stellar-background-ratio="0.4">
     <div class="container">

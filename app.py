@@ -88,8 +88,8 @@ def register():
 
 
 
-@app.route('/list')
-def list():
+@app.route('/lista_servicios')
+def lista_servicios():
    con = sql.connect(nombre_db)   
    con.row_factory = sql.Row
    cur = con.cursor()
@@ -98,8 +98,20 @@ def list():
    
    rows = cur.fetchall()
    print(rows)
-   return render_template("list.html",rows = rows)
-    
+   return render_template("lista_servicios.html",rows = rows)
+
+@app.route('/lista_usuarios')
+def lista_usuarios():
+   con = sql.connect(nombre_db)   
+   con.row_factory = sql.Row
+   cur = con.cursor()
+   cur.execute("select * from registro")  #seleccionamos todos los datos de la tabla animales
+  
+   
+   rows = cur.fetchall()
+   print(rows)
+   return render_template("lista_usuarios.html",rows = rows)
+
 @app.route('/consulta')
 def consulta():
    return render_template("consulta.html")
@@ -168,7 +180,7 @@ def registro_usuario():
     if request.method=='POST':   
         try:
             Nombre_usuario=request.form['Username']                         #nombre de usuario
-            Apellido_usuario=request.form['Apellido']             #descripcion del servicio 
+            Apellido_usuario=request.form['Nombre y Apellido']             #descripcion del servicio 
             Nacimiento=request.form['Fecha_de_Nacimiento']  #input para fecha de nacimiento
             Contrasenha=request.form['Contrasenha'] #Descripción de hobbies
             Numero_de_telefono=request.form['Telefono'] #contacto

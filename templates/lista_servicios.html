@@ -88,7 +88,6 @@
                  <nav>
                    <ul class="nav nav-pills pull-right col-sm-1">
                      <li role="presentation" class="btn btn-sm btn-primary btn-block col-sm-2"><a href="/">Inicio</a></li>
-                     <li role="presentation"class="btn btn-sm btn-primary btn-block col-sm-2"><a href="/formulario">Regístrate</a></li>
                 <center>
                    </ul>
                  </nav>
@@ -105,25 +104,26 @@
                </center>
       <center>  
           <table class="table">
-              <thead class="thead-dark">
-                <tr>
-                  <th scope="col">Servicios</th>
-                  <th scope="col">Descripcion</th>
-                  <th scope="col">Disponibilidad</th>
-                  <th scope="col">Precio/hora</th>
-                  <th scope="col">Telefono</th>
-                  <th scope="col">Precio</th>
-                </tr>
-              </thead>
-              <tbody>
-                {% for row in rows %}
-                <tr>
-                  <th scope="row">{{ row["Servicio"] }}</th>
-                  <td>{{ row["Descripcion_del_Producto"]}}</td>
-                  <td>{{ row["Horas_por_semana"]}}</td>
-                  <td>{{row["Precio_por_hora"]}}</td>
-                  <td>{{row["Contacto"]}}</td>
-                </tr>
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Servicios</th>
+                <th scope="col">Descripcion</th>
+                <th scope="col">Disponibilidad</th>
+                <th scope="col">Precio por hora</th>
+                <th scope="col">Telefono</th>
+                <th scope="col">Correo</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for row in rows %}
+              <tr>
+                <th scope="row">{{ row["Servicio"] }}</th>
+                <td>{{ row["Descripcion_del_Producto"]}}</td>
+                <td>{{ row["Horas_por_semana"]}}</td>
+                <td>{{row["Precio_por_hora"]}}</td>
+                <td>{{row["Contacto"]}}</td>
+                <td>{{row["Correo"]}}</td>
+              </tr>
       
               </tbody>
               {% endfor %}

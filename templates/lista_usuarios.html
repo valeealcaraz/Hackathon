@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Venta de Hobbies</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+
+  <!-- Facebook Opengraph integration: https://developers.facebook.com/docs/sharing/opengraph -->
+  <meta property="og:title" content="">
+  <meta property="og:image" content="">
+  <meta property="og:url" content="">
+  <meta property="og:site_name" content="">
+  <meta property="og:description" content="">
+
+  <!-- Twitter Cards integration: https://dev.twitter.com/cards/  -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="">
+  <meta name="twitter:title" content="">
+  <meta name="twitter:description" content="">
+  <meta name="twitter:image" content="">
+
+  <!-- Fav and touch icons -->
+  <link rel="shortcut icon" href="img/icons/favicon.png">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/icons/114x114.png">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/icons/72x72.png">
+  <link rel="apple-touch-icon-precomposed" href="img/icons/default.png">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900" rel="stylesheet">
+
+  <!-- Bootstrap CSS File -->
+  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Libraries CSS Files -->
+  <link href="{{url_for('static',filename='lib/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
+  <link href="{{url_for('static',filename='lib/owlcarousel/owl.carousel.min.css')}}" rel="stylesheet">
+  <link href="{{url_for('static',filename='lib/owlcarousel/owl.theme.min.css')}}" rel="stylesheet">
+  <link href="{{url_for('static',filename='lib/owlcarousel/owl.transitions.min.css')}}" rel="stylesheet">
+
+  <!-- Main Stylesheet File -->
+  <link href="{{url_for('static',filename='css/style.css')}}" rel="stylesheet">
+
+  <!--Your custom colour override - predefined colours are: colour-blue.css, colour-green.css, colour-lavander.css, orange is default-->
+  <link href="#" id="colour-scheme" rel="stylesheet">
+
+  <!-- =======================================================
+    Theme Name: Flexor
+    Theme URL: https://bootstrapmade.com/flexor-free-multipurpose-bootstrap-template/
+    Author: BootstrapMade.com
+    Author URL: https://bootstrapmade.com
+  ======================================================= -->
+</head>
+<body class="page-index has-hero">
+  <!--Change the background class to alter background image, options are: benches, boots, buildings, city, metro -->
+  <div id="background-wrapper" class="buildings" data-stellar-background-ratio="0.1">
+
+    <!-- ======== @Region: #navigation ======== -->
+    <div id="navigation" class="wrapper">
+
+              <!--@todo: replace with company contact details-->
+              <h3 style="color:white">
+                ¡Contactanos!
+                </h3>
+              <address>
+                  <strong style="color:white">Casa de Nómadas</strong>
+                  <abbr style="color:white" title="Address"><i class="fa fa-pushpin">Gumersindo Sosa 1461, barrio Ycua Sati. Asunción - Paraguay</i></i></abbr>
+                  
+                  <br>
+                  <abbr style="color:white" title="Phone"> <i class="fa fa-phone">+595 983 361 232</i></i></abbr>
+                  
+                  <br>
+                  <abbr  title="Email"><i class="fa fa-envelope-alt" style="color:white;"> vale.alcaraz14@gmail.com</i></i></abbr>
+                  
+                </address>
+            </div>
+
+           
+            </div>
+          </div>
+        </div>
+      </div>
+
+         <div class="container-fluid">
+               <div class="header">
+                 <nav>
+                   <ul class="nav nav-pills pull-right col-sm-1">
+                     <li role="presentation" class="btn btn-sm btn-primary btn-block col-sm-2"><a href="/">Inicio</a></li>
+                <center>
+                   </ul>
+                 </nav>
+                 <h3 class="colour orange active"style="color:orangered"> Lista de Usuarios</h3>
+               </div>
+               </center>
+               
+               <center>
+               <div  class="colour orange active">
+                     <h1 style="color:orangered; font-weight: 500">Usuarios</h1>
+                     <p class="lead"></p>
+                
+                </div>
+               </center>
+      <center>  
+          <table class="table">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">Usuario</th>
+                  <th scope="col">Nombre y Apellido</th>
+                  <th scope="col">Fecha de nacimiento</th>
+                  <th scope="col">Contrasenha</th>
+                  <th scope="col">Telefono</th>
+                  <th scope="col">Correo</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for row in rows %}
+                <tr>
+                  <th scope="row">{{ row["Usuario"] }}</th>
+                  <td>{{ row["Apellido_usuario"]}}</td>
+                  <td>{{ row["Nacimiento"]}}</td>
+                  <td>{{row["Contrasenha"]}}</td>
+                  <td>{{row["Numero_de_telefono"]}}</td>
+                  <td>{{row["Correo"]}}</td>
+                </tr>
+      
+              </tbody>
+              {% endfor %}
+            </table>
+            
+            
+        </center> 
+        <div class="col-sm-4 col-sm-offset-4"><br>
+
+      <button class="btn btn-lg btn-primary btn-block" type="submit">
+       
+         <a href = "/register" style="color:white;">Regresar para registar otro Usuario</a>
+      
+      </button>
+      <br>
+     
+     <button class="btn btn-lg btn-primary btn-block">
+           <a href = "/" style="color:white;">Regresar a la página principal</a><br>
+     </button>      
+      </div>
+
+      
+   </body>
+</html>

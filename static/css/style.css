@@ -1551,6 +1551,11 @@ a:hover {
 .metro {
   background-image: url(../img/backgrounds/metro.png);
 }
+
+/*.buildings {
+  background-image: url(../img/backgrounds/buildings.png);
+}*/
+
 a.btn-hh-trigger {
   display: block;
   font-size: 0 !important;

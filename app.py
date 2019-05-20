@@ -19,7 +19,7 @@ app=Flask(__name__, static_url_path='')
 
 nombre_db="base_datos3.db"   #nombre de la base de datos
 
-@app.route('/')
+@app.route('/') #pagina principal, retorna a index.html
 def main():
     print("adfdsdf")
     return render_template('index.html')
@@ -28,7 +28,6 @@ def main():
 @app.route('/showHome')
 def showHome():
     return render_template('index.html')  
-
 
 
 @app.route('/ingresar',methods=['POST','GET'])
@@ -41,7 +40,7 @@ def showlogin():
 
 @app.route('/formulario')
 def formulario():
-    js=lista()    #llamamos a la funcion para retornar del lado del cliente datos par el formulario
+    js=lista_servicios()    #llamamos a la funcion para retornar del lado del cliente datos par el formulario
     return render_template('registro.html',dato=js)
 
 @app.route('/registro', methods=['POST','GET'])      # aca es para registrar al animal
@@ -78,13 +77,13 @@ def registro():
 
         finally:
             con.close()# cerramos la conexion de la base de datos 
-            js=lista()   #retornamos datos de la db para el form del lado del cliente
+            js=lista_servicios()   #retornamos datos de la db para el form del lado del cliente
             return render_template('registro.html',dato=js)
             
 
-@app.route('/register')
+@app.route('/registro_usuario')
 def register():
-    return render_template('register.html')
+    return render_template('registro_usuario.html')
 
 
 
@@ -136,70 +135,35 @@ def consulta_servicio():
         return render_template("consulta_servicio.html",Identificativo=variable,columna=columna)
 
 
-def lista():
-   try:
-       con = sql.connect(nombre_db)
-       con.row_factory = sql.Row  
-       cur = con.cursor()
-       cur.execute("select * from servicio")
-       dato = cur.fetchall()     #cargamos toda la info de la db en la variable dato
-       razas=[]                   #lista para almacenar datos de razas 
-       id=[]
-       for a in dato:
-          id.append(a[0])    #usamos la posicion 0 ya que ahi se encuentra el id
-       for a in dato:
-          razas.append(a[1])   #usamos la posicion 1 ya que ahi se encuentran las razas 
-                            # en la siguiente linea formateamos en json para luego formatear del lado del cliente en js 
-       js={
-            'Servicios': servicio, 
-        'Descripcion_del_producto': Descripcion_del_producto
-        
-        }
-       return js   
-   except:            #si tiene problemas puede ser porque no existe la base de datos
-       with sql.connect(nombre_db) as con:        
-           cur = con.cursor()
-           cur.execute("""CREATE TABLE IF NOT EXISTS servicios (
-                                        Servicio text,
-                                        Descripcion_del_producto text,                                        
-                                        Horas_por_semana integer NOT NULL,
-                                        Precio_por_hora integer NOT NULL,
-                                        Contacto number,
-                                        Correo text
-                                    ); """
-                       )
-           js={
-             'Servicio': " ",  
-                 'Descripcion del producto': " "
-
-            }
-       return js
 
 @app.route('/registro_usuario', methods=['POST','GET'])      # aca es para registrar al usuario
 def registro_usuario():
     if request.method=='POST':   
         try:
-            Nombre_usuario=request.form['Username']                         #nombre de usuario
-            Apellido_usuario=request.form['Nombre y Apellido']             #descripcion del servicio 
+            Usuario=request.form['Username']                         #nombre de usuario
+            Nombre_usuario=request.form['Nombre']             #descripcion del servicio 
+            Apellido_usuario=request.form['Apellido']
             Nacimiento=request.form['Fecha_de_Nacimiento']  #input para fecha de nacimiento
             Contrasenha=request.form['Contrasenha'] #Descripción de hobbies
             Numero_de_telefono=request.form['Telefono'] #contacto
             Correo=request.form['Correo']  
             print("hgfggf")
-            datos=[Nombre_usuario,Apellido_usuario,Nacimiento,Contrasenha,Numero_de_telefono,Correo]  # esto es para meter en la db luego
+            datos=[Usuario,Nombre_usuario,Apellido_usuario,Nacimiento,Contrasenha,Numero_de_telefono,Correo]  # esto es para meter en la db luego
             print(datos)
             with sql.connect(nombre_db) as con:
+
                 cur = con.cursor()
-                cur.execute('''CREATE TABLE IF NOT EXISTS registro (
-                                        Nombre_usuario text,
-                                        Apellido_usuario text,                                        
+                cur.execute("""CREATE TABLE IF NOT EXISTS registro (
+                                        Usuario text,
+                                        Nombre_usuario text,  
+                                        Apellido_usuario text,                                      
                                         Nacimiento integer NOT NULL,
                                         Contrasenha text,
                                         Numero_de_telefono integer NOT NULL,
                                         Correo text
-                                    );'''
+                                    );"""
                        )
-                cur.execute("""INSERT INTO registro (Nombre_usuario,Apellido_usuario,Nacimiento,Contrasenha,Numero_de_telefono,Correo) VALUES (?,?,?,?,?,?);""", datos )
+                cur.execute("""INSERT INTO registro (Usuario,Nombre_usuario,Apellido_usuario,Nacimiento,Contrasenha,Numero_de_telefono,Correo) VALUES (?,?,?,?,?,?,?);""", datos )
             
                 con.commit()   
              
@@ -208,9 +172,9 @@ def registro_usuario():
             con.rollback()
 
         finally:
-            con.close()# cerramos la conexion de la base de datos 
-            js=lista()   #retornamos datos de la db para el form del lado del cliente
-            return render_template('register.html',dato=js)
+            con.close() #cerramos la conexion de la base de datos 
+            js=lista_usuarios()   #retornamos datos de la db para el form del lado del cliente
+            return render_template('registro_usuario.html',dato=js)
 
 @app.route('/consulta')
 def consulta_usuario():
@@ -239,4 +203,5 @@ def consulta_username():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
 

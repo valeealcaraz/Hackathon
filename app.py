@@ -34,10 +34,11 @@ def showHome():
 def showlogin():
     return render_template('login.html')
 
-@app.route('/formulario') #esta ruta te lleva al formulario para el servicio
-def formulario():
+@app.route('/registro_servicios') #esta ruta te lleva al formulario para el servicio
+def registro_servicios():
     js=lista_servicios()    #llamamos a la funcion para retornar del lado del cliente datos par el formulario
     return render_template('registro.html',dato=js)
+
 
 @app.route('/registro', methods=['POST','GET'])      # aca es para registrar al servicio nuevo
 def registro():
@@ -55,15 +56,15 @@ def registro():
                     
                 cur = con.cursor()
                 cur.execute("""CREATE TABLE IF NOT EXISTS servicios (
-                                        Servicio text,
+                                        Servicio_Producto text,
                                         Descripcion_del_producto text,                                        
                                         Horas_por_semana integer NOT NULL,
                                         Precio_por_hora integer NOT NULL,
-                                        Contacto number,
+                                        Numero_de_telefono integer,
                                         Correo text
                                     );"""
                        )
-                cur.execute('''INSERT INTO servicios (Servicio,Descripcion_del_producto,Horas_por_semana,Precio_por_hora,Contacto,Correo) VALUES (?,?,?,?,?,?);''', datos )
+                cur.execute("""INSERT INTO servicios (Servicio_Producto,Descripcion_del_producto,Horas_por_semana,Precio_por_hora,Numero_de_telefono,Correo) VALUES (?,?,?,?,?,?);""", datos )
             
                 con.commit()   
              

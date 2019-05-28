@@ -106,7 +106,7 @@
           <table class="table">
             <thead class="thead-dark">
               <tr>
-                <th scope="col">Servicios</th>
+                <th scope="col">Servicios/Producto</th>
                 <th scope="col">Descripcion</th>
                 <th scope="col">Disponibilidad</th>
                 <th scope="col">Precio por hora</th>
@@ -117,11 +117,11 @@
             <tbody>
               {% for row in rows %}
               <tr>
-                <th scope="row">{{ row["Servicio"] }}</th>
+                <th scope="row">{{ row["Servicio_Producto"] }}</th>
                 <td>{{ row["Descripcion_del_Producto"]}}</td>
                 <td>{{ row["Horas_por_semana"]}}</td>
                 <td>{{row["Precio_por_hora"]}}</td>
-                <td>{{row["Contacto"]}}</td>
+                <td>{{row["Telefono"]}}</td>
                 <td>{{row["Correo"]}}</td>
               </tr>
       
@@ -135,7 +135,7 @@
 
       <button class="btn btn-lg btn-primary btn-block" type="submit">
        
-         <a href = "/formulario" style="color:white;">Regresar para registar otro servicio</a>
+         <a href = "/registro_servicios" style="color:white;">Registar otro servicio</a>
       
       </button>
       <br>     

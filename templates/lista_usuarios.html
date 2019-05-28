@@ -107,7 +107,8 @@
               <thead class="thead-dark">
                 <tr>
                   <th scope="col">Usuario</th>
-                  <th scope="col">Nombre y Apellido</th>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Apellido</th>
                   <th scope="col">Telefono</th>
                   <th scope="col">Correo</th>
                 </tr>
@@ -116,6 +117,7 @@
                 {% for row in rows %}
                 <tr>
                   <th scope="row">{{ row["Usuario"] }}</th>
+                  <td>{{ row["Nombre_usuario"]}}</td>
                   <td>{{ row["Apellido_usuario"]}}</td>
                   <td>{{row["Numero_de_telefono"]}}</td>
                   <td>{{row["Correo"]}}</td>

@@ -125,7 +125,7 @@ def consulta_servicio():
     
         rows = cur.fetchall()                
         for i in rows:                   #recorremos la lista dentro de otra lista que está en rows
-            if variable==str(i["Servicio"]):   #si coincide con la consulta, agregamos lo que se consulto 
+            if variable==str(i["Servicios/Producto"]):   #si coincide con la consulta, agregamos lo que se consulto 
                 columna.append(i)        #con append agregamos lo que se consultó en la base de datos, solo cuando coincide lo que se le metio en la consulta desde el html 
         
         return render_template("consulta_servicio.html",Identificativo=variable,columna=columna)
